@@ -1,0 +1,6 @@
+[submodule "pack/colorschemes/start/gruvbox"]
+	path = pack/colorschemes/start/gruvbox
+	url = git@github.com:morhetz/gruvbox.git
+[submodule "pack/plugins/start/nvim-tree"]
+	path = pack/plugins/start/nvim-tree
+	url = git@github.com:/kyazdani42/nvim-tree.lua.git
