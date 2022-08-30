@@ -7,8 +7,8 @@ vim.o.dictionary = "/usr/share/dict/brazilian,/usr/share/dict/american-english"
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_contrast_light = 'hard'
 vim.g.gruvbox_italic = 1
+vim.api.nvim_set_option('termguicolors', true)
 vim.cmd("colorscheme gruvbox")
-
 
 -- plugins configuration
 require("nvim-tree").setup({
