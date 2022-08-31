@@ -4,3 +4,6 @@
 [submodule "pack/plugins/start/nvim-tree"]
 	path = pack/plugins/start/nvim-tree
 	url = git@github.com:/kyazdani42/nvim-tree.lua.git
+[submodule "pack/plugins/start/tabgar"]
+	path = pack/plugins/start/tabgar
+	url = git@github.com:/majutsushi/tagbar.git
