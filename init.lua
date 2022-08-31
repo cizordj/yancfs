@@ -25,3 +25,5 @@ require("nvim-tree").setup({
 })
 
 -- keybingings
+vim.api.nvim_set_keymap('n', '<F3>', '<cmd>NvimTreeToggle<CR>', { noremap = true, desc = "Open up the file manager"})
+vim.api.nvim_set_keymap('n', '<F2>', '<cmd>NvimTreeFindFileToggle<CR>', { noremap = true, desc = "See the current file in the file manager"})
