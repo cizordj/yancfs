@@ -7,3 +7,9 @@
 [submodule "pack/plugins/start/tabgar"]
 	path = pack/plugins/start/tabgar
 	url = git@github.com:/majutsushi/tagbar.git
+[submodule "pack/plugins/start/nvim-treesitter"]
+	path = pack/plugins/start/nvim-treesitter
+	url = git@github.com:/nvim-treesitter/nvim-treesitter.git
+[submodule "pack/plugins/start/nvim-lspconfig"]
+	path = pack/plugins/start/nvim-lspconfig
+	url = git@github.com:/neovim/nvim-lspconfig.git
