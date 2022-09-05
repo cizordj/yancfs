@@ -39,6 +39,15 @@ require("nvim-treesitter.configs").setup({
         enable = true
     }
 })
+require('lualine').setup({
+    options = {
+        theme = 'gruvbox'
+    },
+    tabline = {
+        lualine_a = { 'buffers' },
+        lualine_z = { 'tabs' },
+    }
+})
 -- }}}
 
 -- Lsp configs {{{
@@ -139,9 +148,9 @@ vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { nor
 vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
 
 -- git integration
-vim.api.nvim_set_keymap('n', '<leader>ga', "<cmd>Gitsigns stage_buffer<cr>", { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>", { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>ga', "<cmd>Gitsigns stage_buffer<cr>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true })
 
 -- }}}
