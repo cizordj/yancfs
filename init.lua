@@ -1,3 +1,6 @@
+-- vim:foldmethod=marker
+
+-- Global options {{{
 -- mouse integration
 vim.g.mouse = 'n'
 -- dictionary completion
@@ -11,8 +14,11 @@ vim.g.gruvbox_contrast_light = 'hard'
 vim.g.gruvbox_italic = 1
 vim.api.nvim_set_option('termguicolors', true)
 vim.cmd("colorscheme gruvbox")
+require("caesar/commands")
 
--- plugins configuration
+-- }}}
+
+-- Plugins setups {{{
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     view = {
@@ -25,42 +31,7 @@ require("nvim-tree").setup({
         dotfiles = true,
     },
 })
--- keybingings >>>
-vim.g.mapleader = ','
-
--- window navigation
-vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>vsplit<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>h', '<cmd>split<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-Up>', '<cmd>resize -1<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-Down>', '<cmd>resize +1<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-Left>', '<cmd>vertical resize -1<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-Right>', '<cmd>vertical resize +1<CR>', { noremap = true })
--- code manipulation
-vim.api.nvim_set_keymap('x', 'K', ":move '<-2<CR>gv-gv", { noremap = true })
-vim.api.nvim_set_keymap('x', 'J', ":move '>+1<CR>gv-gv", { noremap = true })
-vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
-vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
-
-vim.api.nvim_set_keymap('n', '<F2>', '<cmd>NvimTreeFindFileToggle<CR>',
-    { noremap = true, desc = "See the current file in the file manager" })
-vim.api.nvim_set_keymap('n', '<F3>', '<cmd>NvimTreeToggle<CR>', { noremap = true, desc = "Open up the file manager" })
-vim.api.nvim_set_keymap('n', '<F4>', '<cmd>TagbarToggle<CR>', { noremap = true, desc = "Open up the tagbar" })
-
--- telescope
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
-
--- git integration
 require('gitsigns').setup()
-vim.api.nvim_set_keymap('n', '<leader>ga', "<cmd>Gitsigns stage_buffer<cr>", { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>", { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true})
-
--- <<< keybindings
-
--- Treesitter
 require("nvim-treesitter.configs").setup({
     ensure_installed = { "lua", "php" },
     auto_install = true,
@@ -68,15 +39,12 @@ require("nvim-treesitter.configs").setup({
         enable = true
     }
 })
+-- }}}
 
--- LSP Config
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+-- Lsp configs {{{
+local lsp_flags = {
+    debounce_text_changes = 150,
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -104,9 +72,13 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local lsp_flags = {
-    debounce_text_changes = 150,
-}
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
 require('lspconfig')['phpactor'].setup {
     on_attach = on_attach,
@@ -133,4 +105,43 @@ require('lspconfig')['sumneko_lua'].setup {
         enable = false,
     }
 }
-require("caesar/commands")
+-- }}}
+
+-- Keybindings {{{
+vim.g.mapleader = ','
+
+-- window navigation
+vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>vsplit<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>h', '<cmd>split<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Up>', '<cmd>resize -1<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Down>', '<cmd>resize +1<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Left>', '<cmd>vertical resize -1<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Right>', '<cmd>vertical resize +1<CR>', { noremap = true })
+-- buffer navigation
+vim.api.nvim_set_keymap('n', '<C-h>', '<cmd>bp<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<cmd>bn<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>bd<cr>', { noremap = true })
+
+-- code manipulation
+vim.api.nvim_set_keymap('x', 'K', ":move '<-2<CR>gv-gv", { noremap = true })
+vim.api.nvim_set_keymap('x', 'J', ":move '>+1<CR>gv-gv", { noremap = true })
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<F2>', '<cmd>NvimTreeFindFileToggle<CR>',
+    { noremap = true, desc = "See the current file in the file manager" })
+vim.api.nvim_set_keymap('n', '<F3>', '<cmd>NvimTreeToggle<CR>', { noremap = true, desc = "Open up the file manager" })
+vim.api.nvim_set_keymap('n', '<F4>', '<cmd>TagbarToggle<CR>', { noremap = true, desc = "Open up the tagbar" })
+
+-- telescope
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
+
+-- git integration
+vim.api.nvim_set_keymap('n', '<leader>ga', "<cmd>Gitsigns stage_buffer<cr>", { noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>", { noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true})
+
+-- }}}
