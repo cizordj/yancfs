@@ -41,7 +41,10 @@ require("nvim-treesitter.configs").setup({
 })
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'auto',
+        disabled_filetypes = {
+            statusline = { "NvimTree" },
+        }
     },
     tabline = {
         lualine_a = { 'buffers' },
