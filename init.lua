@@ -126,3 +126,4 @@ require('lspconfig')['sumneko_lua'].setup {
         enable = false,
     }
 }
+require("caesar/commands")
