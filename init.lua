@@ -51,6 +51,13 @@ vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { no
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
 
+-- git integration
+require('gitsigns').setup()
+vim.api.nvim_set_keymap('n', '<leader>ga', "<cmd>Gitsigns stage_buffer<cr>", { noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>", { noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true})
+
 -- <<< keybindings
 
 -- Treesitter
