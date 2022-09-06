@@ -7,6 +7,7 @@ vim.g.mouse = 'n'
 vim.o.dictionary = "/usr/share/dict/brazilian,/usr/share/dict/american-english"
 -- show line numbers
 vim.o.number = true
+vim.o.background = "light"
 
 -- colorscheme stuff
 vim.g.gruvbox_contrast_dark = 'hard'
@@ -33,7 +34,7 @@ require("nvim-tree").setup({
 })
 require('gitsigns').setup()
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "lua", "php" },
+    ensure_installed = { "lua", "php", "javascript" },
     auto_install = true,
     highlight = {
         enable = true
@@ -78,7 +79,7 @@ local on_attach = function(client, bufnr)
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
