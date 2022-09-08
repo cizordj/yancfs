@@ -34,7 +34,7 @@ require("nvim-tree").setup({
 })
 require('gitsigns').setup()
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "lua", "php", "javascript" },
+    ensure_installed = { "lua", "php", "javascript", "json" },
     auto_install = true,
     highlight = {
         enable = true
