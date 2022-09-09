@@ -119,6 +119,7 @@ require('lspconfig')['sumneko_lua'].setup {
         enable = false,
     }
 }
+
 require("null-ls").setup({
     sources = {
         require("null-ls").builtins.formatting.stylua,
