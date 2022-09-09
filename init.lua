@@ -96,7 +96,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 require('lspconfig')['phpactor'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
-    cmd = { "./pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
+    cmd = { vim.env.HOME .. "/.config/nvim/pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
 }
 require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,
