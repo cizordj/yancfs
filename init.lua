@@ -31,6 +31,9 @@ require("nvim-tree").setup({
     filters = {
         dotfiles = true,
     },
+    git = {
+        ignore = false,
+    },
 })
 require('gitsigns').setup()
 require("nvim-treesitter.configs").setup({
@@ -142,6 +145,8 @@ vim.api.nvim_set_keymap('n', '<C-Right>', '<cmd>vertical resize +1<CR>', { norem
 -- buffer navigation
 vim.api.nvim_set_keymap('n', '<C-h>', '<cmd>bp<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<cmd>bn<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>bp<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>w', '<cmd>bn<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>bd<cr>', { noremap = true })
 
 -- code manipulation
