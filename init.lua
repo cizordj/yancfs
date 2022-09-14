@@ -16,6 +16,7 @@ vim.g.gruvbox_italic = 1
 vim.api.nvim_set_option('termguicolors', true)
 vim.cmd("colorscheme moonfly")
 require("caesar/commands")
+vim.notify = require("notify")
 
 -- }}}
 
@@ -128,14 +129,20 @@ require("null-ls").setup({
         require("null-ls").builtins.formatting.stylua,
         require("null-ls").builtins.formatting.prettier.with({
             extra_filetypes = { "php" },
-            extra_args = { "--print-width", "100" }
+            extra_args = { "--print-width", "100" },
+            to_temp_file = true,
         }),
-        require("null-ls").builtins.formatting.phpcsfixer,
+        require("null-ls").builtins.formatting.phpcsfixer.with({
+            to_temp_file = true,
+        }),
         require("null-ls").builtins.code_actions.gitsigns,
         require("null-ls").builtins.diagnostics.phpmd.with({
-            extra_args = { "cleancode", "controversial", "design", "unusedcode" }
+            extra_args = { "cleancode", "controversial", "design", "unusedcode" },
+            to_temp_file = false,
         })
     },
+    update_in_insert = true,
+    log_level = "debug"
 })
 -- }}}
 

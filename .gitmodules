@@ -37,3 +37,6 @@
 [submodule "colors/vim-moonfly-colors"]
 	path = colors/vim-moonfly-colors
 	url = git@github.com:bluz71/vim-moonfly-colors.git
+[submodule "pack/plugins/start/nvim-notify"]
+	path = pack/plugins/start/nvim-notify
+	url = git@github.com:rcarriga/nvim-notify
