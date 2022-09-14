@@ -34,3 +34,6 @@
 [submodule "pack/plugins/start/null-ls.nvim"]
 	path = pack/plugins/start/null-ls.nvim
 	url = git@github.com:jose-elias-alvarez/null-ls.nvim.git
+[submodule "colors/vim-moonfly-colors"]
+	path = colors/vim-moonfly-colors
+	url = git@github.com:bluz71/vim-moonfly-colors.git
