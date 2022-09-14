@@ -8,12 +8,3 @@ map(0, 'n', '<leader>mm', ':call phpactor#ContextMenu()<cr>', options)
 map(0, 'n', '<leader>nc', ':call phpactor#ClassNew()<cr>', options)
 map(0, 'n', '<leader>ov', ':call phpactor#GotoDefinition("vsplit")<cr>', options)
 map(0, 'n', '<leader>oh', ':call phpactor#GotoDefinition("split")<cr>', options)
-local null_ls = require("null-ls")
-null_ls.register({
-   name = "prettier",
-   filetypes = { "php" },
-   sources = {
-       null_ls.builtins.formatting.prettier
-   },
-   methods = { null_ls.methods.FORMATTING }
-})
