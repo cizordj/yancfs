@@ -38,10 +38,11 @@ require("nvim-tree").setup({
 })
 require('gitsigns').setup()
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "lua", "php", "javascript", "json" },
+    ensure_installed = { "lua", "javascript", "json" },
     auto_install = true,
     highlight = {
-        enable = true
+        enable = true,
+        disable = { "php" }
     }
 })
 require('lualine').setup({
@@ -129,7 +130,7 @@ require("null-ls").setup({
         require("null-ls").builtins.formatting.stylua,
         require("null-ls").builtins.formatting.prettier.with({
             extra_filetypes = { "php" },
-            extra_args = { "--print-width", "100" },
+            extra_args = { "--print-width", "80" },
             to_temp_file = true,
         }),
         require("null-ls").builtins.formatting.phpcsfixer.with({
@@ -142,10 +143,10 @@ require("null-ls").setup({
         }),
         require("null-ls").builtins.diagnostics.phpstan.with({
             to_temp_file = false,
-            extra_args = { "--memory-limit=200M" }
+            extra_args = { "--memory-limit=200M", "--level=8" }
         })
     },
-    update_in_insert = true,
+    update_in_insert = false,
     log_level = "debug"
 })
 -- }}}
