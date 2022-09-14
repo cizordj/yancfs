@@ -139,6 +139,10 @@ require("null-ls").setup({
         require("null-ls").builtins.diagnostics.phpmd.with({
             extra_args = { "cleancode", "controversial", "design", "unusedcode" },
             to_temp_file = false,
+        }),
+        require("null-ls").builtins.diagnostics.phpstan.with({
+            to_temp_file = false,
+            extra_args = { "--memory-limit=200M" }
         })
     },
     update_in_insert = true,
