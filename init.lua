@@ -127,11 +127,14 @@ require("null-ls").setup({
     sources = {
         require("null-ls").builtins.formatting.stylua,
         require("null-ls").builtins.formatting.prettier.with({
-            extra_filetypes = { "php" }
+            extra_filetypes = { "php" },
+            extra_args = { "--print-width", "100" }
         }),
         require("null-ls").builtins.formatting.phpcsfixer,
         require("null-ls").builtins.code_actions.gitsigns,
-        require("null-ls").builtins.diagnostics.phpmd,
+        require("null-ls").builtins.diagnostics.phpmd.with({
+            extra_args = { "cleancode", "controversial", "design", "unusedcode" }
+        })
     },
 })
 -- }}}
