@@ -8,6 +8,7 @@ vim.o.dictionary = "/usr/share/dict/brazilian,/usr/share/dict/american-english"
 -- show line numbers
 vim.o.number = true
 vim.o.background = "light"
+vim.o.timeoutlen = 300
 
 -- colorscheme stuff
 vim.g.gruvbox_contrast_dark = 'hard'
