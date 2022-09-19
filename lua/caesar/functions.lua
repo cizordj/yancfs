@@ -22,7 +22,8 @@ function M:preWriteSenaiCommitMessage()
   if lineLength > 0 then
     return
   end
-  vim.cmd("norm gg04j5wywggI[]PA")
+  local branchName = string.gsub(currentBranch, [[^feature/]], '')
+  vim.cmd("norm gg04j5wywggI["..branchName.."]")
 end
 
 function M:gimmePermission()
