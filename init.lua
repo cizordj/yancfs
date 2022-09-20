@@ -130,7 +130,7 @@ require("null-ls").setup({
     sources = {
         require("null-ls").builtins.formatting.stylua,
         require("null-ls").builtins.formatting.prettier.with({
-            extra_filetypes = { "php" },
+            extra_filetypes = { "php", "html" },
             extra_args = { "--print-width", "80" },
             to_temp_file = true,
         }),
