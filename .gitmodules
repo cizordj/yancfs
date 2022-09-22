@@ -40,3 +40,6 @@
 [submodule "pack/plugins/start/nvim-notify"]
 	path = pack/plugins/start/nvim-notify
 	url = git@github.com:rcarriga/nvim-notify
+[submodule "pack/plugins/start/omni.vim"]
+	path = pack/plugins/start/omni.vim
+	url = git@github.com:yonlu/omni.vim.git
