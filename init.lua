@@ -15,7 +15,7 @@ vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_contrast_light = 'hard'
 vim.g.gruvbox_italic = 1
 vim.api.nvim_set_option('termguicolors', true)
-vim.cmd("colorscheme omni")
+vim.cmd("colorscheme yowish")
 require("caesar/commands")
 vim.notify = require("notify")
 
