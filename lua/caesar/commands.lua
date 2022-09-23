@@ -1,4 +1,5 @@
 vim.cmd("command! ClearCache :!docker-compose exec --user www-data -T php php bin/console cache:clear")
+vim.cmd([[command! Copy :'<,'>"+y]])
 vim.cmd("command! DeleteFile :call delete(expand('%')) | bdelete!")
 vim.cmd("command! ElasticaPopulate :!docker-compose exec --user www-data -T php php bin/console fos:elastica:populate")
 vim.cmd("command! FixPermissions :!docker-compose exec -T php chown www-data:$(id -u) -R var/ vendor/ public/ composer.lock composer.json symfony.lock")
