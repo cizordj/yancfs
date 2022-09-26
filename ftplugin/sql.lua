@@ -1,1 +1,3 @@
-require('lvim.lsp.manager').setup("sqls", {})
+require('lspconfig')['sqls'].setup({
+    cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
+})
