@@ -46,3 +46,12 @@
 [submodule "pack/plugins/start/yowish.vim"]
 	path = pack/plugins/start/yowish.vim
 	url = git@github.com:KabbAmine/yowish.vim.git
+[submodule "pack/plugins/opt/vim-dadbod.git"]
+	path = pack/plugins/opt/vim-dadbod.git
+	url = git@github.com:tpope/vim-dadbod.git
+[submodule "pack/plugins/opt/vim-dadbod-ui"]
+	path = pack/plugins/opt/vim-dadbod-ui
+	url = git@github.com:kristijanhusak/vim-dadbod-ui.git
+[submodule "pack/plugins/opt/vim-dadbod-completion"]
+	path = pack/plugins/opt/vim-dadbod-completion
+	url = git@github.com:kristijanhusak/vim-dadbod-completion.git

@@ -1,3 +1,3 @@
-require('lspconfig')['sqls'].setup({
-    cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
-})
+--require("caesar.functions").loadUpDadbod()
+-- vim.bo.omnifunc = 'vim_dadbod_completion#omni'
+-- vim.b.db = 'brd2'

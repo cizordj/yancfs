@@ -19,6 +19,12 @@ vim.cmd("colorscheme yowish")
 require("caesar/commands")
 vim.notify = require("notify")
 
+-- DBUI config
+vim.g.db_ui_user_nerd_fonts = true
+vim.g.db_ui_auto_execute_table_helpers = true
+vim.g.db_ui_win_position = 'right'
+vim.g.db_ui_show_database_icon = 1
+
 -- }}}
 
 -- Plugins setups {{{
@@ -43,7 +49,7 @@ require("nvim-treesitter.configs").setup({
     auto_install = true,
     highlight = {
         enable = true,
-        disable = { "php", "gitcommit" }
+        disable = { "php", "gitcommit", "sql" }
     }
 })
 require('lualine').setup({
@@ -102,7 +108,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 require('lspconfig')['phpactor'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
-    cmd = { vim.env.HOME .. "/.config/nvim/pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
+    cmd = { require('caesar.functions').scriptpath() .. "/pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
 }
 require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,
@@ -140,15 +146,19 @@ require("null-ls").setup({
         require("null-ls").builtins.code_actions.gitsigns,
         require("null-ls").builtins.diagnostics.phpmd.with({
             extra_args = { "cleancode", "controversial", "design", "unusedcode" },
-            to_temp_file = false,
+            to_temp_file = true,
         }),
         require("null-ls").builtins.diagnostics.phpstan.with({
-            to_temp_file = false,
+            to_temp_file = true,
             extra_args = { "--memory-limit=200M", "--level=8" }
         })
     },
     update_in_insert = false,
     log_level = "debug"
+})
+
+require('lspconfig')['sqls'].setup({
+    cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
 })
 -- }}}
 
@@ -179,6 +189,7 @@ vim.api.nvim_set_keymap('n', '<F2>', '<cmd>NvimTreeFindFileToggle<CR>',
     { noremap = true, desc = "See the current file in the file manager" })
 vim.api.nvim_set_keymap('n', '<F3>', '<cmd>NvimTreeToggle<CR>', { noremap = true, desc = "Open up the file manager" })
 vim.api.nvim_set_keymap('n', '<F4>', '<cmd>TagbarToggle<CR>', { noremap = true, desc = "Open up the tagbar" })
+vim.api.nvim_set_keymap('n', '<F5>', "<cmd>lua require('caesar/functions').loadUpDadbod()<cr>", { noremap = false, desc = "Load up the database viewer"})
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
