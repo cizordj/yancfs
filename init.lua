@@ -24,6 +24,7 @@ vim.g.db_ui_user_nerd_fonts = true
 vim.g.db_ui_auto_execute_table_helpers = true
 vim.g.db_ui_win_position = 'right'
 vim.g.db_ui_show_database_icon = 1
+local scriptpath = require('caesar.functions').scriptpath()
 
 -- }}}
 
@@ -108,7 +109,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 require('lspconfig')['phpactor'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
-    cmd = { require('caesar.functions').scriptpath() .. "pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
+    cmd = { scriptpath .. "pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
 }
 require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,
@@ -185,11 +186,12 @@ vim.api.nvim_set_keymap('x', 'J', ":move '>+1<CR>gv-gv", { noremap = true })
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
 
-vim.api.nvim_set_keymap('n', '<F2>', '<cmd>NvimTreeFindFileToggle<CR>',
-    { noremap = true, desc = "See the current file in the file manager" })
-vim.api.nvim_set_keymap('n', '<F3>', '<cmd>NvimTreeToggle<CR>', { noremap = true, desc = "Open up the file manager" })
+local nvim_tree = require('nvim-tree.api').tree
+vim.keymap.set('n', '<F2>', function () nvim_tree.toggle(true) end, { noremap = true, desc = "See the current file in the file manager" })
+vim.keymap.set('n', '<F3>', nvim_tree.toggle, { noremap = true, desc = "Open up the file manager"})
+
 vim.api.nvim_set_keymap('n', '<F4>', '<cmd>TagbarToggle<CR>', { noremap = true, desc = "Open up the tagbar" })
-vim.api.nvim_set_keymap('n', '<F5>', "<cmd>lua require('caesar/functions').loadUpDadbod()<cr>",
+vim.keymap.set('n', '<F5>', require('caesar.functions').loadUpDadbod,
     { noremap = false, desc = "Load up the database viewer" })
 
 -- telescope
@@ -204,7 +206,7 @@ vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { norem
 vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true })
 
 -- open this configuration
-vim.api.nvim_set_keymap('n', '<leader>Lc', "<cmd>e " .. require('caesar.functions').scriptpath() .. 'init.lua<cr>',
+vim.api.nvim_set_keymap('n', '<leader>Lc', "<cmd>e " .. scriptpath .. 'init.lua<cr>',
     { noremap = true, desc = "Configuration file" })
 
 -- }}}
