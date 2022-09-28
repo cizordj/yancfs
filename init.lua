@@ -108,7 +108,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 require('lspconfig')['phpactor'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
-    cmd = { require('caesar.functions').scriptpath() .. "/pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
+    cmd = { require('caesar.functions').scriptpath() .. "pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
 }
 require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,
@@ -189,7 +189,8 @@ vim.api.nvim_set_keymap('n', '<F2>', '<cmd>NvimTreeFindFileToggle<CR>',
     { noremap = true, desc = "See the current file in the file manager" })
 vim.api.nvim_set_keymap('n', '<F3>', '<cmd>NvimTreeToggle<CR>', { noremap = true, desc = "Open up the file manager" })
 vim.api.nvim_set_keymap('n', '<F4>', '<cmd>TagbarToggle<CR>', { noremap = true, desc = "Open up the tagbar" })
-vim.api.nvim_set_keymap('n', '<F5>', "<cmd>lua require('caesar/functions').loadUpDadbod()<cr>", { noremap = false, desc = "Load up the database viewer"})
+vim.api.nvim_set_keymap('n', '<F5>', "<cmd>lua require('caesar/functions').loadUpDadbod()<cr>",
+    { noremap = false, desc = "Load up the database viewer" })
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
@@ -201,5 +202,9 @@ vim.api.nvim_set_keymap('n', '<leader>ga', "<cmd>Gitsigns stage_buffer<cr>", { n
 vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true })
+
+-- open this configuration
+vim.api.nvim_set_keymap('n', '<leader>Lc', "<cmd>e " .. require('caesar.functions').scriptpath() .. 'init.lua<cr>',
+    { noremap = true, desc = "Configuration file" })
 
 -- }}}
