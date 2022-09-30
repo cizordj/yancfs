@@ -14,8 +14,9 @@ vim.o.timeoutlen = 300
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_contrast_light = 'hard'
 vim.g.gruvbox_italic = 1
+vim.g.guifont = "FiraCode Nerd Font Mono"
 vim.api.nvim_set_option('termguicolors', true)
-vim.cmd("colorscheme yowish")
+vim.cmd("colorscheme gruvbox")
 require("caesar/commands")
 vim.notify = require("notify")
 
@@ -141,17 +142,13 @@ require("null-ls").setup({
             extra_args = { "--print-width", "80" },
             to_temp_file = true,
         }),
-        require("null-ls").builtins.formatting.phpcsfixer.with({
-            to_temp_file = true,
-        }),
-        require("null-ls").builtins.code_actions.gitsigns,
         require("null-ls").builtins.diagnostics.phpmd.with({
             extra_args = { "cleancode", "controversial", "design", "unusedcode" },
             to_temp_file = true,
         }),
         require("null-ls").builtins.diagnostics.phpstan.with({
             to_temp_file = true,
-            extra_args = { "--memory-limit=200M", "--level=8" }
+            extra_args = { "--memory-limit=200M", "--level=4" }
         })
     },
     update_in_insert = false,
