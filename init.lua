@@ -134,26 +134,28 @@ require('lspconfig')['sumneko_lua'].setup {
     }
 }
 
-require("null-ls").setup({
+local null_ls = require("null-ls")
+null_ls.setup({
     sources = {
-        require("null-ls").builtins.formatting.stylua,
-        require("null-ls").builtins.formatting.prettier.with({
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.prettier.with({
             extra_filetypes = { "php", "html" },
             extra_args = { "--print-width", "80" },
             to_temp_file = true,
         }),
-        require("null-ls").builtins.diagnostics.phpmd.with({
+        null_ls.builtins.diagnostics.phpmd.with({
             extra_args = { "cleancode", "controversial", "design", "unusedcode" },
             to_temp_file = true,
         }),
-        require("null-ls").builtins.diagnostics.phpstan.with({
+        null_ls.builtins.diagnostics.phpstan.with({
             to_temp_file = true,
             extra_args = { "--memory-limit=200M", "--level=4" }
         })
     },
     update_in_insert = false,
-    log_level = "debug"
+    log_level = "warning"
 })
+null_ls = nil
 
 require('lspconfig')['sqls'].setup({
     cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
