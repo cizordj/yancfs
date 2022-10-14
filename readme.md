@@ -8,3 +8,10 @@ and no plugin manager whatsoever
 - Clone this repo into `~/.config/nvim`
 - Initialize all submodules with `git submodule update --init --recursive`
 - Run the `setup` script and there you go.
+
+#### Update plugins
+
+To update all submodules to the latest version use this command:
+```bash
+git submodule update --recursive --remote
+```
