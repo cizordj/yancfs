@@ -52,6 +52,3 @@
 [submodule "pack/plugins/start/nvim-tree"]
 	path = pack/plugins/start/nvim-tree
 	url = git@github.com:nvim-tree/nvim-tree.lua.git
-[submodule "pack/plugins/start/nvim-treesitter"]
-	path = pack/plugins/start/nvim-treesitter
-	url = git@github.com:nvim-treesitter/nvim-treesitter.git
