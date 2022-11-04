@@ -130,10 +130,8 @@ local null_ls = require("null-ls")
 null_ls.setup({
    sources = {
        null_ls.builtins.formatting.prettier.with({
-           cmd = { scriptpath .. "node_modules/.bin/prettier" },
-           extra_filetypes = { "php", "html" },
-           extra_args = { "--print-width", "80" },
-           to_temp_file = true,
+           command = { scriptpath .. "node_modules/.bin/prettier" },
+           extra_filetypes = { "php", "html" }
        })
    }
 })
