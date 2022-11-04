@@ -52,3 +52,6 @@
 [submodule "pack/plugins/start/nvim-tree"]
 	path = pack/plugins/start/nvim-tree
 	url = git@github.com:nvim-tree/nvim-tree.lua.git
+[submodule "pack/plugins/start/vim-coloresque"]
+	path = pack/plugins/start/vim-coloresque
+	url = git@github.com:gko/vim-coloresque.git
