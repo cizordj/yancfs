@@ -7,7 +7,7 @@ vim.g.mouse = 'n'
 vim.o.dictionary = "/usr/share/dict/brazilian,/usr/share/dict/american-english"
 -- show line numbers
 vim.o.number = true
-vim.o.background = "light"
+vim.o.background = "dark"
 vim.o.timeoutlen = 300
 
 -- colorscheme stuff
@@ -184,8 +184,16 @@ vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>", { nor
 vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true })
 
--- open this configuration
+-- open this own configuration file
 vim.api.nvim_set_keymap('n', '<leader>Lc', "<cmd>e " .. scriptpath .. 'init.lua<cr>',
     { noremap = true, desc = "Configuration file" })
+
+-- copy to system clipboard
+vim.keymap.set(
+    'v',
+    '<C-y>',
+    '"+y',
+    { noremap = true, desc = "Copy to system clipboard" }
+)
 
 -- }}}
