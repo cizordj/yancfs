@@ -55,3 +55,6 @@
 [submodule "pack/plugins/start/vim-coloresque"]
 	path = pack/plugins/start/vim-coloresque
 	url = git@github.com:gko/vim-coloresque.git
+[submodule "pack/plugins/opt/dbext.vim"]
+	path = pack/plugins/opt/dbext.vim
+	url = git@github.com:vim-scripts/dbext.vim.git
