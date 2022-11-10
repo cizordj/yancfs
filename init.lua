@@ -14,7 +14,7 @@ vim.o.timeoutlen = 300
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_contrast_light = 'hard'
 vim.g.gruvbox_italic = 1
-vim.g.guifont = "FiraCode Nerd Font Mono"
+vim.g.guifont = "Fira Code Sans"
 vim.api.nvim_set_option('termguicolors', true)
 vim.cmd("colorscheme gruvbox")
 require("caesar/commands")
