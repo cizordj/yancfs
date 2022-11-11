@@ -46,15 +46,9 @@
 [submodule "pack/plugins/opt/vim-dadbod-ui"]
 	path = pack/plugins/opt/vim-dadbod-ui
 	url = git@github.com:kristijanhusak/vim-dadbod-ui.git
-[submodule "pack/plugins/opt/vim-dadbod-completion"]
-	path = pack/plugins/opt/vim-dadbod-completion
-	url = git@github.com:kristijanhusak/vim-dadbod-completion.git
 [submodule "pack/plugins/start/nvim-tree"]
 	path = pack/plugins/start/nvim-tree
 	url = git@github.com:nvim-tree/nvim-tree.lua.git
 [submodule "pack/plugins/start/vim-coloresque"]
 	path = pack/plugins/start/vim-coloresque
 	url = git@github.com:gko/vim-coloresque.git
-[submodule "pack/plugins/opt/dbext.vim"]
-	path = pack/plugins/opt/dbext.vim
-	url = git@github.com:vim-scripts/dbext.vim.git
