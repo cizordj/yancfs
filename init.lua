@@ -18,7 +18,12 @@ vim.g.guifont = "Fira Code Sans"
 vim.api.nvim_set_option('termguicolors', true)
 vim.cmd("colorscheme gruvbox")
 require("caesar/commands")
-vim.notify = require("notify")
+local notify = require("notify")
+vim.notify = notify
+notify.setup({
+    fps = 60,
+    top_down = false
+})
 
 -- DBUI config
 vim.g.db_ui_user_nerd_fonts = true
