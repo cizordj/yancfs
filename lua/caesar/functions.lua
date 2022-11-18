@@ -43,4 +43,18 @@ function M:scriptpath()
   return str:match("(.*/)")
 end
 
+function M:setupNeovide()
+  local cursor_particles = {
+    "railgun",
+    "torpedo",
+    "pixiedust",
+    "sonicboom",
+    "ripple",
+    "wireframe"
+  }
+  local i = math.random(0, #(cursor_particles))
+
+  vim.g.neovide_cursor_vfx_mode = cursor_particles[i];
+end
+
 return M

@@ -32,6 +32,11 @@ vim.g.db_ui_win_position = 'right'
 vim.g.db_ui_show_database_icon = 1
 local scriptpath = require('caesar.functions').scriptpath()
 
+-- Neovide
+if (vim.g.neovide)
+    then
+        require('caesar.functions').setupNeovide()
+    end
 -- }}}
 
 -- Plugins setups {{{
