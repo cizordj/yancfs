@@ -7,7 +7,7 @@ function M:rebaseCurrentBranch()
     return
   end
   local numberOfCommits = vim.api.nvim_exec("Git rev-list --count HEAD ^develop", true)
-  local command = "Git rebase -i HEAD~"..numberOfCommits
+  local command = "Git rebase -i HEAD~" .. numberOfCommits
   return vim.api.nvim_command(command)
 end
 
@@ -23,7 +23,7 @@ function M:preWriteSenaiCommitMessage()
     return
   end
   local branchName = string.gsub(currentBranch, [[^feature/]], '')
-  vim.cmd("norm gg04j5wywggI["..branchName.."]")
+  vim.cmd("norm gg04j5wywggI[" .. branchName .. "]")
 end
 
 function M:gimmePermission()
@@ -34,7 +34,7 @@ end
 function M:loadUpDadbod()
   vim.cmd("packadd vim-dadbod.git")
   vim.cmd("packadd vim-dadbod-ui")
-  vim.api.nvim_set_keymap('n', '<F5>', "<cmd>DBUIToggle<cr>", { noremap = true, desc = "Open up the database viewer"})
+  vim.api.nvim_set_keymap('n', '<F5>', "<cmd>DBUIToggle<cr>", { noremap = true, desc = "Open up the database viewer" })
   vim.cmd("DBUIToggle")
 end
 
@@ -53,8 +53,32 @@ function M:setupNeovide()
     "wireframe"
   }
   local i = math.random(0, #(cursor_particles))
-
   vim.g.neovide_cursor_vfx_mode = cursor_particles[i];
+  vim.keymap.set(
+    'n',
+    '<C-S-PageUp>',
+    function()
+      vim.cmd("let g:neovide_scale_factor =" ..
+        vim.g.neovide_scale_factor + 0.1
+      )
+    end
+  )
+  vim.keymap.set(
+    'n',
+    '<C-S-PageDown>',
+    function()
+      vim.cmd("let g:neovide_scale_factor =" ..
+        vim.g.neovide_scale_factor - 0.1
+      )
+    end
+  )
+  vim.keymap.set(
+    'n',
+    '<C-S-Home>',
+    function()
+      vim.cmd("let g:neovide_scale_factor = 1")
+    end
+  )
 end
 
 return M
