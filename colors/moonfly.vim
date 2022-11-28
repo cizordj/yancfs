@@ -1,1 +1,0 @@
-vim-moonfly-colors/colors/moonfly.vim

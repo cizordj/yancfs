@@ -22,15 +22,9 @@
 [submodule "pack/plugins/opt/phpactor"]
 	path = pack/plugins/opt/phpactor
 	url = git@github.com:/phpactor/phpactor.git
-[submodule "colors/gruvbox"]
-	path = colors/gruvbox
-	url = git@github.com:morhetz/gruvbox.git
 [submodule "pack/plugins/start/null-ls.nvim"]
 	path = pack/plugins/start/null-ls.nvim
 	url = git@github.com:jose-elias-alvarez/null-ls.nvim.git
-[submodule "colors/vim-moonfly-colors"]
-	path = colors/vim-moonfly-colors
-	url = git@github.com:bluz71/vim-moonfly-colors.git
 [submodule "pack/plugins/start/nvim-notify"]
 	path = pack/plugins/start/nvim-notify
 	url = git@github.com:rcarriga/nvim-notify
@@ -55,3 +49,6 @@
 [submodule "pack/plugins/start/vim-commentary"]
 	path = pack/plugins/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary
+[submodule "pack/plugins/start/papercolor-theme"]
+	path = pack/plugins/start/papercolor-theme
+	url = git@github.com:NLKNguyen/papercolor-theme.git

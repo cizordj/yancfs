@@ -11,12 +11,9 @@ vim.o.background = "dark"
 vim.o.timeoutlen = 300
 
 -- colorscheme stuff
-vim.g.gruvbox_contrast_dark = 'hard'
-vim.g.gruvbox_contrast_light = 'hard'
-vim.g.gruvbox_italic = 1
 vim.g.guifont = "Fira Code Sans"
 vim.api.nvim_set_option('termguicolors', true)
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme PaperColor")
 require("caesar/commands")
 local notify = require("notify")
 vim.notify = notify
