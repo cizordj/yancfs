@@ -52,3 +52,6 @@
 [submodule "pack/plugins/start/papercolor-theme"]
 	path = pack/plugins/start/papercolor-theme
 	url = git@github.com:NLKNguyen/papercolor-theme.git
+[submodule "pack/plugins/opt/glow-hover.nvim"]
+	path = pack/plugins/opt/glow-hover.nvim
+	url = git@github.com:JASONews/glow-hover.nvim.git
