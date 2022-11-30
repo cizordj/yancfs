@@ -58,25 +58,23 @@ function M:setupNeovide()
     'n',
     '<C-S-PageUp>',
     function()
-      vim.cmd("let g:neovide_scale_factor =" ..
+      vim.g.neovide_scale_factor =
         vim.g.neovide_scale_factor + 0.1
-      )
     end
   )
   vim.keymap.set(
     'n',
     '<C-S-PageDown>',
     function()
-      vim.cmd("let g:neovide_scale_factor =" ..
+      vim.g.neovide_scale_factor =
         vim.g.neovide_scale_factor - 0.1
-      )
     end
   )
   vim.keymap.set(
     'n',
     '<C-S-Home>',
     function()
-      vim.cmd("let g:neovide_scale_factor = 1")
+      vim.g.neovide_scale_factor = 1
     end
   )
 end
