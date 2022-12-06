@@ -146,6 +146,9 @@ null_ls.setup({
        null_ls.builtins.formatting.prettier.with({
            command = { scriptpath .. "node_modules/.bin/prettier" },
            extra_filetypes = { "php", "html" }
+       }),
+       null_ls.builtins.diagnostics.phpstan.with({
+           command = { scriptpath .. "vendor/bin/phpstan" }
        })
    }
 })
