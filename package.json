@@ -2,7 +2,7 @@
   "dependencies": {
     "@prettier/plugin-php": "^0.19.2",
     "@tailwindcss/language-server": "^0.0.10",
-    "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.2.1"
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "prettier": "^2.7.1"
   }
 }
