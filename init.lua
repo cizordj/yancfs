@@ -135,6 +135,9 @@ require('lspconfig')['sumneko_lua'].setup {
         enable = false,
     }
 }
+require('lspconfig')['tailwindcss'].setup {
+    cmd = { scriptpath .. "./node_modules/.bin/tailwindcss-language-server", "--stdio" }
+}
 
 local null_ls = require("null-ls")
 null_ls.setup({
