@@ -11,6 +11,7 @@ function M:rebaseCurrentBranch()
   return vim.api.nvim_command(command)
 end
 
+---@return nil
 function M:preWriteSenaiCommitMessage()
   local currentBranch = vim.api.nvim_exec("Git rev-parse --abbrev-ref HEAD", true)
   local weAreOnGitFlow = string.match(currentBranch, [[^feature/.*]])
@@ -26,11 +27,13 @@ function M:preWriteSenaiCommitMessage()
   vim.cmd("norm gg04j5wywggI[" .. branchName .. "]")
 end
 
+---@return nil
 function M:gimmePermission()
   vim.api.nvim_exec([[!doas chown "$(id -u)" %]], false)
   vim.api.nvim_exec([[!doas chmod +rw "$(id -u)" %]], false)
 end
 
+---@return nil
 function M:loadUpDadbod()
   vim.cmd("packadd vim-dadbod.git")
   vim.cmd("packadd vim-dadbod-ui")
@@ -38,11 +41,14 @@ function M:loadUpDadbod()
   vim.cmd("DBUIToggle")
 end
 
+---@return string
+---Returns the current script location on the file system
 function M:scriptpath()
   local str = debug.getinfo(2, "S").source:sub(2)
   return str:match("(.*/)")
 end
 
+---@return nil
 function M:setupNeovide()
   local cursor_particles = {
     "railgun",
