@@ -52,7 +52,15 @@ require("nvim-tree").setup({
         ignore = false,
     },
 })
-require('gitsigns').setup()
+require('gitsigns').setup({
+    on_attach = function()
+        local gitsigns = require('gitsigns.actions')
+        vim.keymap.set('n', '<leader>ga', gitsigns.stage_buffer, { noremap = true })
+        vim.keymap.set('n', '<leader>gs', gitsigns.stage_hunk, { noremap = true })
+        vim.keymap.set('n', '<leader>gd', gitsigns.diffthis, { noremap = true })
+        vim.keymap.set('n', '<leader>gl', gitsigns.blame_line, { noremap = true })
+    end
+})
 require('lualine').setup({
     options = {
         theme = 'auto',
@@ -194,12 +202,6 @@ vim.keymap.set('n', '<F5>', require('caesar.functions').loadUpDadbod,
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
-
--- git integration
-vim.api.nvim_set_keymap('n', '<leader>ga', "<cmd>Gitsigns stage_buffer<cr>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gl', "<cmd>Gitsigns blame_line<cr>", { noremap = true })
 
 -- open this own configuration file
 vim.api.nvim_set_keymap('n', '<leader>Lc', "<cmd>e " .. scriptpath .. 'init.lua<cr>',
