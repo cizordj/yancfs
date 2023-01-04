@@ -69,11 +69,13 @@ require('lualine').setup({
 
 -- Lsp configs {{{
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
+---Use an on_attach function to only map the following keys
+---after the language server attaches to the current buffer
+---@param _ any
+---@param bufnr number
 local on_attach = function(_, bufnr)
     -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.b[bufnr].omnifunc = vim.lsp.omnifunc
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
