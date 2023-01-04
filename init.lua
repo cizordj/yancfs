@@ -31,9 +31,9 @@ local scriptpath = require('caesar.functions').scriptpath()
 
 -- Neovide
 if (vim.g.neovide)
-    then
-        require('caesar.functions').setupNeovide()
-    end
+then
+    require('caesar.functions').setupNeovide()
+end
 -- }}}
 
 -- Plugins setups {{{
@@ -92,7 +92,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
+    vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting_sync, bufopts)
 end
 
 local lsp_flags = {
@@ -125,21 +125,21 @@ require('lspconfig')['sumneko_lua'].setup {
     }
 }
 require('lspconfig')['tailwindcss'].setup {
-  cmd = { scriptpath .. "node_modules/.bin/tailwindcss-language-server", "--stdio" },
-  on_attach = on_attach,
+    cmd = { scriptpath .. "node_modules/.bin/tailwindcss-language-server", "--stdio" },
+    on_attach = on_attach,
 }
 
 local null_ls = require("null-ls")
 null_ls.setup({
-   sources = {
-       null_ls.builtins.formatting.prettier.with({
-           command = { scriptpath .. "node_modules/.bin/prettier" },
-           extra_filetypes = { "php", "html" }
-       }),
-       null_ls.builtins.diagnostics.phpstan.with({
-           command = { scriptpath .. "vendor/bin/phpstan" }
-       })
-   }
+    sources = {
+        null_ls.builtins.formatting.prettier.with({
+            command = { scriptpath .. "node_modules/.bin/prettier" },
+            extra_filetypes = { "php", "html" }
+        }),
+        null_ls.builtins.diagnostics.phpstan.with({
+            command = { scriptpath .. "vendor/bin/phpstan" }
+        })
+    }
 })
 null_ls = nil
 
@@ -161,8 +161,6 @@ vim.api.nvim_set_keymap('n', '<C-Right>', '<cmd>vertical resize +1<CR>', { norem
 -- buffer navigation
 vim.api.nvim_set_keymap('n', '<C-h>', '<cmd>bp<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<cmd>bn<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>bp<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>w', '<cmd>bn<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>bd<cr>', { noremap = true })
 
 -- code manipulation
@@ -172,8 +170,9 @@ vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
 
 local nvim_tree = require('nvim-tree.api').tree
-vim.keymap.set('n', '<F2>', function () nvim_tree.toggle(true) end, { noremap = true, desc = "See the current file in the file manager" })
-vim.keymap.set('n', '<F3>', nvim_tree.toggle, { noremap = true, desc = "Open up the file manager"})
+vim.keymap.set('n', '<F2>', function() nvim_tree.toggle(true) end,
+    { noremap = true, desc = "See the current file in the file manager" })
+vim.keymap.set('n', '<F3>', nvim_tree.toggle, { noremap = true, desc = "Open up the file manager" })
 
 vim.api.nvim_set_keymap('n', '<F4>', '<cmd>TagbarToggle<CR>', { noremap = true, desc = "Open up the tagbar" })
 vim.keymap.set('n', '<F5>', require('caesar.functions').loadUpDadbod,
