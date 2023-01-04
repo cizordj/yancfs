@@ -127,6 +127,9 @@ require('lspconfig')['sumneko_lua'].setup {
 require('lspconfig')['tailwindcss'].setup {
     cmd = { scriptpath .. "node_modules/.bin/tailwindcss-language-server", "--stdio" },
     on_attach = on_attach,
+    filetypes = {
+        "typescriptreact"
+    }
 }
 
 local null_ls = require("null-ls")
