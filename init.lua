@@ -93,6 +93,12 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting_sync, bufopts)
+    vim.keymap.set('n', '<leader>q', function()
+        vim.diagnostic.open_float({
+            bufnr = bufnr,
+            scope = "buffer"
+        })
+    end, bufopts)
 end
 
 local lsp_flags = {
