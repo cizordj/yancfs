@@ -84,6 +84,11 @@ function M:setupNeovide()
       vim.g.neovide_scale_factor = 1
     end
   )
+  vim.keymap.set(
+    {'c', 'i'},
+    '<C-S-v>',
+    '<C-R>+'
+  )
 end
 
 return M
