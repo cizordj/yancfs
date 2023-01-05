@@ -199,9 +199,10 @@ vim.keymap.set('n', '<F5>', require('caesar.functions').loadUpDadbod,
     { noremap = false, desc = "Load up the database viewer" })
 
 -- telescope
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
+local telescope = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', telescope.find_files, { noremap = true })
+vim.keymap.set('n', '<leader>fg', telescope.live_grep, { noremap = true })
+vim.keymap.set('n', '<leader>fb', telescope.buffers, { noremap = true })
 
 -- open this own configuration file
 vim.api.nvim_set_keymap('n', '<leader>Lc', "<cmd>e " .. scriptpath .. 'init.lua<cr>',
