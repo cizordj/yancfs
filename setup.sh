@@ -24,7 +24,7 @@ then
         setupPhpactor
         composer install --no-dev -o
 fi
-exit
+
 if command -v yarn > /dev/null
 then
         yarn install
