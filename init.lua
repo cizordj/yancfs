@@ -224,3 +224,75 @@ vim.keymap.set(
 )
 
 -- }}}
+
+-- Command {{{
+local create_command = vim.api.nvim_create_user_command
+
+create_command(
+    "ClearCache",
+    ":!docker-compose exec --user www-data -T php php bin/console cache:clear",
+    {}
+)
+create_command(
+    "DeleteFile",
+    ":call delete(expand('%')) | bdelete!",
+    {}
+)
+create_command(
+    "DeleteFile",
+    ":call delete(expand('%')) | bdelete!",
+    {}
+)
+create_command(
+    "FixWhitespace",
+    [[:%s/\s\+$//e]],
+    {}
+)
+create_command(
+    "GAmmend",
+    ":Git commit --amend --verbose",
+    {}
+)
+create_command(
+    "GimmePermission",
+    require('caesar.functions').gimmePermission,
+    {}
+)
+create_command(
+    "GCommit",
+    ":Git commit --verbose",
+    {}
+)
+create_command(
+    "JsonPrettify",
+    [[:%!jq '.']],
+    {}
+)
+create_command(
+    "JsonUglify",
+    [[:%!jq --compact-output '.']],
+    {}
+)
+create_command(
+    "MakeItFast",
+    [[:!xset r rate 200 40]],
+    {}
+)
+create_command(
+    "PgFormat",
+    [[:%!pg_format -B -g -L -b -e -]],
+    {}
+)
+create_command(
+    "RebaseCurrentBranch",
+    require('caesar.functions').rebaseCurrentBranch,
+    {}
+)
+create_command(
+    "ReviseCode",
+    ":Git diff develop HEAD",
+    {}
+)
+vim.cmd([[command! -range SortByLineLength :'<,'>!awk '{ print length(), $0 | "sort -n | cut -d\\  -f2-" }']])
+
+-- }}}
