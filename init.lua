@@ -14,7 +14,6 @@ vim.o.timeoutlen = 300
 vim.g.guifont = "Fira Code Sans"
 vim.api.nvim_set_option('termguicolors', true)
 vim.cmd("colorscheme gruvbox")
-require("caesar/commands")
 local notify = require("notify")
 vim.notify = notify
 notify.setup({
