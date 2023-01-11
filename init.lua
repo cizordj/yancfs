@@ -292,6 +292,12 @@ create_command(
     ":Git diff develop HEAD",
     {}
 )
-vim.cmd([[command! -range SortByLineLength :'<,'>!awk '{ print length(), $0 | "sort -n | cut -d\\  -f2-" }']])
+create_command(
+    "SortByLength",
+    [[:'<,'>!awk '{ print length(), $0 | "sort -n | cut -d\\  -f2-" }']],
+    {
+        range = true
+    }
+)
 
 -- }}}
