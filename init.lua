@@ -129,6 +129,14 @@ require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
 }
+require('lspconfig')['eslint'].setup {
+    cmd = {
+        scriptpath .. "node_modules/.bin/vscode-eslint-language-server",
+        "--stdio"
+    },
+    flags = lsp_flags,
+    on_attach = on_attach
+}
 require('lspconfig')['sumneko_lua'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
