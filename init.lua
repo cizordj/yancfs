@@ -299,5 +299,10 @@ create_command(
         range = true
     }
 )
-
+-- No one is really happy until you have these shortcuts
+vim.cmd(":abbreviate W! w!")
+vim.cmd(":abbreviate W w")
+vim.cmd(":abbreviate WQ wq")
+vim.cmd(":abbreviate WQ! wq!")
+vim.cmd(":abbreviate Wq wq")
 -- }}}
