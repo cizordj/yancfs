@@ -1,6 +1,7 @@
 -- vim:foldmethod=marker
 
 -- Global options {{{
+vim.cmd("helptags ALL")
 -- mouse integration
 vim.g.mouse = 'n'
 -- dictionary completion
