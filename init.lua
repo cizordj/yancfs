@@ -14,7 +14,15 @@ vim.o.timeoutlen = 300
 -- colorscheme stuff
 vim.g.guifont = "Fira Code Sans"
 vim.api.nvim_set_option('termguicolors', true)
-vim.cmd("colorscheme gruvbox")
+local dateTable = os.date("*t")
+if dateTable.isdst then
+    vim.go.background = "dark"
+else
+    vim.go.background = "light"
+end
+vim.cmd("colorscheme lunaperche")
+
+-- notifications
 local notify = require("notify")
 vim.notify = notify
 notify.setup({
@@ -105,7 +113,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set(
         'n',
         '<leader>f',
-        function ()
+        function()
             vim.lsp.buf.format({ timeout_ms = 4000 })
         end,
         bufopts
