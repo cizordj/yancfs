@@ -8,7 +8,13 @@ vim.g.mouse = 'n'
 vim.o.dictionary = "/usr/share/dict/brazilian,/usr/share/dict/american-english"
 -- show line numbers
 vim.o.number = true
-vim.o.background = "dark"
+local currentTime = os.date("*t")
+local isDaytime = currentTime.hour >= 6 and currentTime.hour < 18
+if isDaytime then
+    vim.o.background = "light"
+else
+    vim.o.background = "dark"
+end
 vim.o.timeoutlen = 300
 
 -- colorscheme stuff
@@ -138,14 +144,14 @@ require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['eslint'].setup {
-    cmd = {
-        scriptpath .. "node_modules/.bin/vscode-eslint-language-server",
-        "--stdio"
-    },
-    flags = lsp_flags,
-    on_attach = on_attach
-}
+-- require('lspconfig')['eslint'].setup {
+--     cmd = {
+--         scriptpath .. "node_modules/.bin/vscode-eslint-language-server",
+--         "--stdio"
+--     },
+--     flags = lsp_flags,
+--     on_attach = on_attach
+-- }
 require('lspconfig')['sumneko_lua'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
