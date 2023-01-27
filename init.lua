@@ -185,6 +185,9 @@ null_ls.setup({
         null_ls.builtins.diagnostics.phpstan.with({
             command = { scriptpath .. "vendor/bin/phpstan" },
             extra_args = { "--level=9" }
+        }),
+        null_ls.builtins.diagnostics.phpmd.with({
+            extra_args = {"cleancode", "controversial", "design", "unusedcode"}
         })
     }
 })
