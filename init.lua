@@ -4,8 +4,6 @@
 vim.cmd("helptags ALL")
 -- mouse integration
 vim.g.mouse = 'n'
--- dictionary completion
-vim.o.dictionary = "/usr/share/dict/brazilian,/usr/share/dict/american-english"
 -- show line numbers
 vim.o.number = true
 local currentTime = os.date("*t")
