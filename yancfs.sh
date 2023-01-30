@@ -36,6 +36,9 @@ setup() {
         then
                 cd pack/plugins/opt/phpactor
                 composer install --no-dev -o
+                # Perfomance tweaks
+                php bin/phpactor config:set language_server.diagnostics_on_update false
+                php bin/phpactor config:set indexer.exclude_patterns '["/vendor/**/Tests/**/*","/vendor/**/tests/**/*","/var/cache/**/*","/vendor/composer/**/*"]'
                 php bin/phpactor config:set language_server_phpstan.enabled true
                 php bin/phpactor config:set language_server_phpstan.level 9
                 php bin/phpactor config:set language_server_php_cs_fixer.enabled true
@@ -43,8 +46,10 @@ setup() {
                 php bin/phpactor config:set symfony.enabled true
                 php bin/phpactor config:set language_server_code_transform.import_globals true
                 php bin/phpactor config:set code_transform.import_globals true
+                php bin/phpactor config:set code_transform.class_new.variants '{"strict": "strict_class"}'
                 [ -e ~/.config/phpactor/phpactor.json ] && rm ~/.config/phpactor/phpactor.json
                 [ -d ~/.config/phpactor ] || mkdir ~/.config/phpactor
+                cp -r templates/ ~/.config/phpactor/
                 mv .phpactor.json ~/.config/phpactor/phpactor.json
                 cd "$OLDPWD"
                 composer install --no-dev -o
