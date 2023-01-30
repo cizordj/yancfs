@@ -6,25 +6,11 @@ vim.cmd("helptags ALL")
 vim.g.mouse = 'n'
 -- show line numbers
 vim.o.number = true
-local currentTime = os.date("*t")
-local isDaytime = currentTime.hour >= 6 and currentTime.hour < 18
-if isDaytime then
-    vim.o.background = "light"
-else
-    vim.o.background = "dark"
-end
 vim.o.timeoutlen = 300
 
 -- colorscheme stuff
 vim.g.guifont = "Fira Code Sans"
 vim.api.nvim_set_option('termguicolors', true)
-local dateTable = os.date("*t")
-if dateTable.isdst then
-    vim.go.background = "dark"
-else
-    vim.go.background = "light"
-end
-vim.cmd("colorscheme lunaperche")
 
 -- notifications
 local notify = require("notify")
