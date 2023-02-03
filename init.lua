@@ -111,6 +111,12 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', '<leader>q', function()
         vim.diagnostic.open_float({
             bufnr = bufnr,
+            scope = "line"
+        })
+    end, bufopts)
+    vim.keymap.set('n', '<leader>Q', function()
+        vim.diagnostic.open_float({
+            bufnr = bufnr,
             scope = "buffer"
         })
     end, bufopts)
