@@ -42,8 +42,7 @@ setup() {
                 # phpstan
                 php bin/phpactor config:set language_server_phpstan.enabled true
                 php bin/phpactor config:set language_server_phpstan.level 9
-                php bin/phpactor config:set language_server_phpstan.bin "\"$PWD/vendor/bin/phpstan\"" | sed 's/\//\\\//g'
-
+                # misc
                 php bin/phpactor config:set completion_worse.completor.keyword.enabled false
                 php bin/phpactor config:set symfony.enabled true
                 php bin/phpactor config:set language_server_code_transform.import_globals true

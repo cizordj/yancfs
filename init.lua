@@ -168,10 +168,10 @@ null_ls.setup({
             command = { scriptpath .. "node_modules/.bin/prettier" },
             extra_filetypes = { "php", "html" }
         }),
-        -- null_ls.builtins.diagnostics.phpstan.with({
-        --     command = { scriptpath .. "vendor/bin/phpstan" },
-        --     extra_args = { "--level=9" }
-        -- }),
+        null_ls.builtins.diagnostics.phpstan.with({
+            command = { scriptpath .. "vendor/bin/phpstan" },
+            extra_args = { "--level=9" }
+        }),
         null_ls.builtins.diagnostics.phpmd.with({
             extra_args = {"cleancode", "controversial", "design", "unusedcode"}
         })
