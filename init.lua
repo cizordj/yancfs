@@ -181,7 +181,9 @@ null_ls.setup({
         null_ls.builtins.diagnostics.phpmd.with({
             extra_args = {"cleancode", "controversial", "design", "unusedcode"}
         })
-    }
+    },
+    debounce = 300,
+    temp_dir = vim.go.directory
 })
 null_ls = nil
 
