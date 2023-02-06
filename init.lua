@@ -178,9 +178,6 @@ null_ls.setup({
             command = { scriptpath .. "vendor/bin/phpstan" },
             extra_args = { "--level=9" }
         }),
-        null_ls.builtins.diagnostics.phpmd.with({
-            extra_args = {"cleancode", "controversial", "design", "unusedcode"}
-        })
     },
     debounce = 300,
     temp_dir = vim.go.directory
