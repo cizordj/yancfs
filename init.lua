@@ -17,7 +17,8 @@ local notify = require("notify")
 vim.notify = notify
 notify.setup({
     fps = 60,
-    top_down = false
+    top_down = false,
+    background_colour = "#000000"
 })
 
 -- DBUI config
