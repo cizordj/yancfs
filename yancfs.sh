@@ -50,9 +50,9 @@ setup() {
                 php bin/phpactor config:set code_transform.class_new.variants '{"strict": "strict_class"}'
                 [ -e ~/.config/phpactor/phpactor.json ] && rm ~/.config/phpactor/phpactor.json
                 [ -d ~/.config/phpactor ] || mkdir ~/.config/phpactor
-                cp -r templates/ ~/.config/phpactor/
                 mv .phpactor.json ~/.config/phpactor/phpactor.json
                 cd "$OLDPWD"
+                cp -r templates/ ~/.config/phpactor/
                 composer install --no-dev -o
         fi
 
