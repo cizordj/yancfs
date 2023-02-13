@@ -6,10 +6,3 @@ local node_binaries_path = vim.fn.getcwd() .. '/node_modules/.bin'
 if vim.fn.isdirectory(node_binaries_path) then
     vim.env.PATH = vim.env.PATH .. ':' .. node_binaries_path
 end
-
-require('lspconfig')['tsserver'].setup {
-    on_attach = require('caesar.functions')['onAttach'],
-    flags = {
-        debounce_text_changes = 150,
-    },
-}

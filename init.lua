@@ -88,14 +88,16 @@ require('lspconfig')['phpactor'].setup {
     flags = lsp_flags,
     cmd = { scriptpath .. "/pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
 }
--- require('lspconfig')['eslint'].setup {
---     cmd = {
---         scriptpath .. "/node_modules/.bin/vscode-eslint-language-server",
---         "--stdio"
---     },
---     flags = lsp_flags,
---     on_attach = on_attach
--- }
+require('lspconfig')['tsserver'].setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+}
+require('lspconfig')['eslint'].setup {
+    flags = lsp_flags,
+    on_attach = on_attach
+}
 require('lspconfig')['lua_ls'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
@@ -114,7 +116,6 @@ require('lspconfig')['lua_ls'].setup {
     }
 }
 require('lspconfig')['tailwindcss'].setup {
-    cmd = { scriptpath .. "/node_modules/.bin/tailwindcss-language-server", "--stdio" },
     on_attach = on_attach,
     filetypes = {
         "typescriptreact", "typescript"
@@ -137,10 +138,6 @@ null_ls.setup({
     temp_dir = vim.go.directory
 })
 null_ls = nil
-
-require('lspconfig')['sqls'].setup({
-    cmd = { "sqls", "-config", "~/.config/sqls/config.yml" }
-})
 -- }}}
 
 -- Keybindings {{{
