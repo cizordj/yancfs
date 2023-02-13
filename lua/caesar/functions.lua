@@ -44,7 +44,7 @@ end
 ---@return string
 ---Returns the path to the init.lua file
 function M:initLuaPath()
-  return string.gsub(vim.api.nvim_get_runtime_file("init.lua", false)[1], "init.lua", "")
+  return string.gsub(vim.api.nvim_get_runtime_file("init.lua", false)[1], "init.lua", "", 1)
 end
 
 ---@return nil
@@ -93,9 +93,8 @@ end
 
 ---Use an on_attach function to only map the following keys
 ---after the language server attaches to the current buffer
----@param _ any
 ---@param bufnr number
-function M:onAttach(_, bufnr)
+function M:onAttach(bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
