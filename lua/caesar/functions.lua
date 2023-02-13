@@ -42,10 +42,9 @@ function M:loadUpDadbod()
 end
 
 ---@return string
----Returns the current script location on the file system
-function M:scriptpath()
-  local str = debug.getinfo(2, "S").source:sub(2)
-  return str:match("(.*/)")
+---Returns the path to the init.lua file
+function M:initLuaPath()
+  return string.gsub(vim.api.nvim_get_runtime_file("init.lua", false)[1], "init.lua", "")
 end
 
 ---@return nil

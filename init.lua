@@ -27,7 +27,7 @@ vim.g.db_ui_user_nerd_fonts = true
 vim.g.db_ui_auto_execute_table_helpers = true
 vim.g.db_ui_win_position = 'right'
 vim.g.db_ui_show_database_icon = 1
-local scriptpath = require('caesar.functions').scriptpath {}
+local scriptpath = require('caesar.functions').initLuaPath()
 
 -- Neovide
 if (vim.g.neovide)
@@ -130,15 +130,11 @@ local lsp_flags = {
 require('lspconfig')['phpactor'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
-    cmd = { scriptpath .. "pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
-}
-require('lspconfig')['tsserver'].setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
+    cmd = { scriptpath .. "/pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
 }
 -- require('lspconfig')['eslint'].setup {
 --     cmd = {
---         scriptpath .. "node_modules/.bin/vscode-eslint-language-server",
+--         scriptpath .. "/node_modules/.bin/vscode-eslint-language-server",
 --         "--stdio"
 --     },
 --     flags = lsp_flags,
@@ -162,7 +158,7 @@ require('lspconfig')['lua_ls'].setup {
     }
 }
 require('lspconfig')['tailwindcss'].setup {
-    cmd = { scriptpath .. "node_modules/.bin/tailwindcss-language-server", "--stdio" },
+    cmd = { scriptpath .. "/node_modules/.bin/tailwindcss-language-server", "--stdio" },
     on_attach = on_attach,
     filetypes = {
         "typescriptreact", "typescript"
@@ -173,11 +169,11 @@ local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
         null_ls.builtins.formatting.prettier.with({
-            command = { scriptpath .. "node_modules/.bin/prettier" },
+            command = { scriptpath .. "/node_modules/.bin/prettier" },
             extra_filetypes = { "php", "html" }
         }),
         null_ls.builtins.diagnostics.phpstan.with({
-            command = { scriptpath .. "vendor/bin/phpstan" },
+            command = { scriptpath .. "/vendor/bin/phpstan" },
             extra_args = { "--level=9" }
         }),
     },
@@ -225,7 +221,7 @@ vim.keymap.set('n', '<leader>fg', telescope.live_grep, { noremap = true })
 vim.keymap.set('n', '<leader>fb', telescope.buffers, { noremap = true })
 
 -- open this own configuration file
-vim.api.nvim_set_keymap('n', '<leader>Lc', "<cmd>e " .. scriptpath .. 'init.lua<cr>',
+vim.api.nvim_set_keymap('n', '<leader>Lc', "<cmd>e " .. scriptpath .. '/init.lua<cr>',
     { noremap = true, desc = "Configuration file" })
 
 -- copy to system clipboard
