@@ -9,9 +9,10 @@ vim.o.number = true
 vim.o.timeoutlen = 300
 
 -- colorscheme stuff
-vim.g.guifont = "Fira Code Sans"
+vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
-vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
+-- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
+vim.cmd("colorscheme kanagawa")
 
 -- notifications
 local notify = require("notify")
@@ -27,7 +28,7 @@ vim.g.db_ui_user_nerd_fonts = true
 vim.g.db_ui_auto_execute_table_helpers = true
 vim.g.db_ui_win_position = 'right'
 vim.g.db_ui_show_database_icon = 1
-local scriptpath = require('caesar.functions').initLuaPath()
+local scriptpath = require('caesar.functions').initpath {}
 
 -- Neovide
 if (vim.g.neovide)

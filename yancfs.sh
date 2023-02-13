@@ -68,7 +68,9 @@ THERE_IS_NO_ARGUMENT=$?
 while true
 do
         if [ $THERE_IS_NO_ARGUMENT -eq 0 ]; then
-                help
+                init_modules
+                update_modules
+                setup
                 exit 0
         elif [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
                 help

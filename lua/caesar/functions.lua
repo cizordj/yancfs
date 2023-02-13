@@ -43,8 +43,8 @@ end
 
 ---@return string
 ---Returns the path to the init.lua file
-function M:initLuaPath()
-  return string.gsub(vim.api.nvim_get_runtime_file("init.lua", false)[1], "init.lua", "", 1)
+function M:initpath()
+  return vim.fs.dirname(vim.api.nvim_get_runtime_file("init.lua", false)[1])
 end
 
 ---@return nil
