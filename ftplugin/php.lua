@@ -13,3 +13,7 @@ map(0, 'n', '<leader>mm', ':call phpactor#ContextMenu()<cr>', options)
 map(0, 'n', '<leader>nc', ':call phpactor#ClassNew()<cr>', options)
 map(0, 'n', '<leader>ov', ':call phpactor#GotoDefinition("vsplit")<cr>', options)
 map(0, 'n', '<leader>oh', ':call phpactor#GotoDefinition("split")<cr>', options)
+
+-- Add phpactor to path in order to run arbitrary commands
+local initPath = require('caesar.functions').initpath {}
+vim.env.PATH = vim.env.PATH .. ':' .. initPath .. '/' .. './pack/plugins/opt/phpactor/bin'
