@@ -55,3 +55,6 @@
 [submodule "pack/plugins/start/kanagawa.nvim"]
 	path = pack/plugins/start/kanagawa.nvim
 	url = git@github.com:/rebelot/kanagawa.nvim.git
+[submodule "pack/plugins/opt/vim-dadbod-completion"]
+	path = pack/plugins/opt/vim-dadbod-completion
+	url = git@github.com:kristijanhusak/vim-dadbod-completion.git
