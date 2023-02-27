@@ -22,6 +22,7 @@
 [submodule "pack/plugins/opt/phpactor"]
 	path = pack/plugins/opt/phpactor
 	url = git@github.com:/phpactor/phpactor.git
+	ignore = all
 [submodule "pack/plugins/start/null-ls.nvim"]
 	path = pack/plugins/start/null-ls.nvim
 	url = git@github.com:jose-elias-alvarez/null-ls.nvim.git
@@ -40,6 +41,7 @@
 [submodule "pack/plugins/opt/vim-dadbod-ui"]
 	path = pack/plugins/opt/vim-dadbod-ui
 	url = git@github.com:kristijanhusak/vim-dadbod-ui.git
+	ignore = all
 [submodule "pack/plugins/start/nvim-tree"]
 	path = pack/plugins/start/nvim-tree
 	url = git@github.com:nvim-tree/nvim-tree.lua.git
@@ -58,3 +60,4 @@
 [submodule "pack/plugins/opt/vim-dadbod-completion"]
 	path = pack/plugins/opt/vim-dadbod-completion
 	url = git@github.com:kristijanhusak/vim-dadbod-completion.git
+	ignore = all
