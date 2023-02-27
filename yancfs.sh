@@ -47,7 +47,7 @@ setup() {
                 php bin/phpactor config:set symfony.enabled true
                 php bin/phpactor config:set language_server_code_transform.import_globals true
                 php bin/phpactor config:set code_transform.import_globals true
-                php bin/phpactor config:set code_transform.class_new.variants '{"strict": "strict_class"}'
+                php bin/phpactor config:set code_transform.class_new.variants '{"strict": "strict_class", "test_case": "test_case"}'
                 [ -e ~/.config/phpactor/phpactor.json ] && rm ~/.config/phpactor/phpactor.json
                 [ -d ~/.config/phpactor ] || mkdir ~/.config/phpactor
                 mv .phpactor.json ~/.config/phpactor/phpactor.json
