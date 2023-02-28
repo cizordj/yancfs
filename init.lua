@@ -20,7 +20,7 @@ vim.notify = notify
 notify.setup({
     fps = 60,
     top_down = false,
-    background_colour = "#000000"
+    background_colour = "#eeeeee"
 })
 
 -- DBUI config
@@ -157,6 +157,9 @@ vim.api.nvim_set_keymap('x', 'K', ":move '<-2<CR>gv-gv", { noremap = true })
 vim.api.nvim_set_keymap('x', 'J', ":move '>+1<CR>gv-gv", { noremap = true })
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
+
+-- getting out of insert mode
+vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true })
 
 local nvim_tree = require('nvim-tree.api').tree
 vim.keymap.set('n', '<F2>', function() nvim_tree.toggle(true) end,
