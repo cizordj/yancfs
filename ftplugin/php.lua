@@ -20,4 +20,7 @@ map(0, 'n', '<leader>oh', ':call phpactor#GotoDefinition("split")<cr>', options)
 
 -- Add phpactor to path in order to run arbitrary commands
 local initPath = require('caesar.functions').initpath {}
-vim.env.PATH = vim.env.PATH .. ':' .. initPath .. '/' .. './pack/plugins/opt/phpactor/bin'
+local phpactorPath = initPath .. '/' .. './pack/plugins/opt/phpactor/bin'
+if nil == string.find(vim.env.PATH, phpactorPath) then
+  vim.env.PATH = vim.env.PATH .. ':' .. phpactorPath
+end

@@ -195,7 +195,7 @@ local create_command = vim.api.nvim_create_user_command
 
 create_command(
     "ClearCache",
-    ":!docker-compose exec --user www-data -T php php bin/console cache:clear",
+    ":!docker compose exec --user www-data -T php php bin/console cache:clear",
     {}
 )
 create_command(
