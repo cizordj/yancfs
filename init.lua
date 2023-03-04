@@ -127,7 +127,7 @@ null_ls.setup({
     sources = {
         null_ls.builtins.formatting.prettier.with({
             command = { scriptpath .. "/node_modules/.bin/prettier" },
-            extra_filetypes = { "php", "html" }
+            extra_filetypes = { "php", "html", "markdown" }
         }),
         null_ls.builtins.diagnostics.phpstan.with({
             command = { scriptpath .. "/vendor/bin/phpstan" },
