@@ -58,7 +58,7 @@ function M:setupNeovide()
       "ripple",
       "wireframe"
   }
-  vim.g.guifont = "JetBrains Mono:h14"
+  vim.g.guifont = "JetBrains Mono:h15"
   local i = math.random(0, #(cursor_particles) - 1)
   -- vim.g.neovide_cursor_vfx_mode = cursor_particles[i];
   vim.cmd('let g:neovide_cursor_vfx_mode = "' .. cursor_particles[i] .. '"')

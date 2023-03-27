@@ -86,7 +86,6 @@ local lsp_flags = {
 require('lspconfig')['phpactor'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
-    cmd = { scriptpath .. "/pack/plugins/opt/phpactor/bin/phpactor", "language-server" }
 }
 require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,

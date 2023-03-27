@@ -8,8 +8,11 @@ and no plugin manager whatsoever
 #### Usage
 
 - Clone this repo into `~/.config/nvim`
-- Initialize all submodules with `./yancfs.sh init`
-- Install the modules' dependencies with `./yancfs.sh setup`
+- Install the system dependencies with:
+```console
+doas apt install yarnpkg composer php-xml php-curl
+```
+- Let it setup everything with `./yancfs.sh`
 
 #### Update plugins
 

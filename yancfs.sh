@@ -60,6 +60,10 @@ setup() {
         then
                 yarn install
         fi
+        if command -v yarnpkg > /dev/null
+        then
+                yarnpkg install
+        fi
 }
 
 test ! $# -gt 0
