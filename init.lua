@@ -121,22 +121,22 @@ require('lspconfig')['tailwindcss'].setup {
     }
 }
 
-local null_ls = require("null-ls")
-null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.prettier.with({
-            command = { scriptpath .. "/node_modules/.bin/prettier" },
-            extra_filetypes = { "php", "html", "markdown" }
-        }),
-        null_ls.builtins.diagnostics.phpstan.with({
-            command = { scriptpath .. "/vendor/bin/phpstan" },
-            extra_args = { "--level=9" }
-        }),
-    },
-    debounce = 300,
-    temp_dir = vim.go.directory
-})
-null_ls = nil
+-- local null_ls = require("null-ls")
+-- null_ls.setup({
+--     sources = {
+--         null_ls.builtins.formatting.prettier.with({
+--             command = { scriptpath .. "/node_modules/.bin/prettier" },
+--             extra_filetypes = { "php", "html", "markdown" }
+--         }),
+--         null_ls.builtins.diagnostics.phpstan.with({
+--             command = { scriptpath .. "/vendor/bin/phpstan" },
+--             extra_args = { "--level=9" }
+--         }),
+--     },
+--     debounce = 300,
+--     temp_dir = vim.go.directory
+-- })
+-- null_ls = nil
 -- }}}
 
 -- Keybindings {{{
