@@ -64,3 +64,6 @@
 [submodule "pack/plugins/opt/nvim-autopairs"]
 	path = pack/plugins/opt/nvim-autopairs
 	url = git@github.com:windwp/nvim-autopairs.git
+[submodule "pack/plugins/start/nvim-treesitter"]
+	path = pack/plugins/start/nvim-treesitter
+	url = git@github.com:/nvim-treesitter/nvim-treesitter.git
