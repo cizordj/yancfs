@@ -4,6 +4,7 @@ vim.api.nvim_set_var('php_folding', true)
 vim.wo.foldlevel = 1
 vim.bo.expandtab = true
 vim.cmd("TSEnable highlight")
+vim.cmd("TSEnable indent")
 local map = vim.api.nvim_buf_set_keymap
 local options = { noremap = true }
 if nil == package.loaded["phpactor"] then
@@ -18,6 +19,9 @@ map(0, 'n', '<leader>mm', ':call phpactor#ContextMenu()<cr>', options)
 map(0, 'n', '<leader>nc', ':call phpactor#ClassNew()<cr>', options)
 map(0, 'n', '<leader>ov', ':call phpactor#GotoDefinition("vsplit")<cr>', options)
 map(0, 'n', '<leader>oh', ':call phpactor#GotoDefinition("split")<cr>', options)
+
+vim.keymap.set('i', '9', function() return '(' end, { expr = true, noremap = true })
+vim.keymap.set('i', '0', function() return ')' end, { expr = true, noremap = true })
 
 -- Add phpactor to path in order to run arbitrary commands
 local initPath = require('caesar.functions').initpath {}
