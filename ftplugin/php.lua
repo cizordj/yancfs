@@ -20,9 +20,6 @@ map(0, 'n', '<leader>nc', ':call phpactor#ClassNew()<cr>', options)
 map(0, 'n', '<leader>ov', ':call phpactor#GotoDefinition("vsplit")<cr>', options)
 map(0, 'n', '<leader>oh', ':call phpactor#GotoDefinition("split")<cr>', options)
 
-vim.keymap.set('i', '9', function() return '(' end, { expr = true, noremap = true })
-vim.keymap.set('i', '0', function() return ')' end, { expr = true, noremap = true })
-
 -- Add phpactor to path in order to run arbitrary commands
 local initPath = require('caesar.functions').initpath {}
 local phpactorPath = initPath .. '/' .. './pack/plugins/opt/phpactor/bin'
