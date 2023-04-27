@@ -1,9 +1,15 @@
 # yancfs
 
-Pronounced ```jˈæŋkˌɛfˈɛs```, yancfs is **Yet Another Neovim Configuration From Scratch**.
+Pronounced
+```jˈæŋkˌɛfˈɛs```,
+yancfs is **Yet Another Neovim Configuration From Scratch**.
+
+<div align="center">
+<img src="logo.svg" />
+</div>
 
 This is my personal NeoVim configuration written entirely from scratch using pure Lua
-and no plugin manager whatsoever
+and no plugin manager whatsoever.
 
 #### Usage
 
@@ -17,7 +23,7 @@ doas apt install yarnpkg composer php-xml php-curl
 #### Update plugins
 
 To update all submodules to their latest version use this command:
-```bash
+```console
 git submodule update --recursive --remote
 ```
 
