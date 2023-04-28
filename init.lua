@@ -12,7 +12,7 @@ vim.o.timeoutlen = 300
 vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
 -- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme franchouchou")
 
 -- notifications
 local notify = require("notify")

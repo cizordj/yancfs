@@ -64,3 +64,6 @@
 [submodule "pack/plugins/start/nvim-treesitter"]
 	path = pack/plugins/start/nvim-treesitter
 	url = git@github.com:/nvim-treesitter/nvim-treesitter.git
+[submodule "pack/plugins/start/vim-colorscheme-franchouchou"]
+	path = pack/plugins/start/vim-colorscheme-franchouchou
+	url = git@github.com:/machakann/vim-colorscheme-franchouchou.git
