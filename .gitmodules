@@ -32,9 +32,6 @@
 [submodule "pack/plugins/start/omni.vim"]
 	path = pack/plugins/start/omni.vim
 	url = git@github.com:yonlu/omni.vim.git
-[submodule "pack/plugins/start/yowish.vim"]
-	path = pack/plugins/start/yowish.vim
-	url = git@github.com:KabbAmine/yowish.vim.git
 [submodule "pack/plugins/opt/vim-dadbod.git"]
 	path = pack/plugins/opt/vim-dadbod.git
 	url = git@github.com:tpope/vim-dadbod.git
