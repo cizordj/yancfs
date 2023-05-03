@@ -235,6 +235,11 @@ create_command(
     {}
 )
 create_command(
+    "SetupGitubIdentity"
+    require('caesar.functions').setupGithubIdentity,
+    {}
+)
+create_command(
     "JsonPrettify",
     [[:%!jq '.']],
     {}
