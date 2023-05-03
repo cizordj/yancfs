@@ -1,5 +1,11 @@
 local M = {}
 
+---Rebase the current git branch interactively using the
+---“develop” branch as an entry point. This is especially
+---useful if you follow the git-flow model and want to squash
+---your changes before the next release.
+---This function won't do anything if it detects that you're
+---not in a git-flow feature branch.
 function M:rebaseCurrentBranch()
   local currentBranch = vim.api.nvim_exec("Git rev-parse --abbrev-ref HEAD", true)
   local weAreOnGitFlow = string.match(currentBranch, [[^feature/.*]])
@@ -11,6 +17,15 @@ function M:rebaseCurrentBranch()
   return vim.api.nvim_command(command)
 end
 
+---This is a little vim macro that pre writes the commit message
+---according to Senai's policy.
+---The main rule is that the messages must have the task number
+---inside brackets which is usually the branch name as well.
+---The task number is extracted from the git branch and then put in
+---the commit message automatically so you won't need to do
+---that repetitive task every time you make a commit.
+---This function won't do anything if it detects that you're
+---not in a git-flow feature branch.
 ---@return nil
 function M:preWriteSenaiCommitMessage()
   local currentBranch = vim.api.nvim_exec("Git rev-parse --abbrev-ref HEAD", true)
@@ -27,6 +42,9 @@ function M:preWriteSenaiCommitMessage()
   vim.cmd("norm gg04j5wywggI[" .. branchName .. "]")
 end
 
+---Gives you permission to read and write the currently opened
+---file using the “doas” command-line utility as root
+---authentication.
 ---@return nil
 function M:gimmePermission()
   vim.api.nvim_exec([[!doas chown "$(id -u)" %]], false)
