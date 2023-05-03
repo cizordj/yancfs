@@ -235,8 +235,13 @@ create_command(
     {}
 )
 create_command(
-    "SetupGitubIdentity"
+    "SetupGitubIdentity",
     require('caesar.functions').setupGithubIdentity,
+    {}
+)
+create_command(
+    "SetupSenaiIdentity",
+    require('caesar.functions').setupSenaiIdentity,
     {}
 )
 create_command(

@@ -149,4 +149,15 @@ function M:setupGithubIdentity()
   vim.cmd("Git config commit.gpgSign true")
 end
 
+---Makes the current git project use my identity
+---from senai, which includes username, email,
+---gpg key and so on.
+function M:setupSenaiIdentity()
+  vim.cmd('Git config user.name "Cézar Augusto de Campos"')
+  vim.cmd('Git config user.email "cezar.campos@sc.senai.br"')
+  vim.cmd("Git config user.signingKey 16DC13CE15C3BA0053383E689466E26E3D20204C")
+  vim.cmd("Git config commit.verbose true")
+  vim.cmd("Git config commit.gpgSign true")
+end
+
 return M
