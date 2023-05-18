@@ -7,6 +7,7 @@ vim.g.mouse = 'n'
 -- show line numbers
 vim.o.number = true
 vim.o.timeoutlen = 300
+vim.o.background = 'light'
 
 -- colorscheme stuff
 vim.g.guifont = "JetBrains Mono"
