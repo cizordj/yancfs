@@ -136,12 +136,14 @@ null_ls.setup({
     sources = {
         null_ls.builtins.formatting.prettier.with({
             command = { scriptpath .. "/node_modules/.bin/prettier" },
-            extra_filetypes = { "php", "html" }
+            extra_filetypes = { "php", "html" },
+            disabled_filetypes = { "markdown" }
         }),
         null_ls.builtins.diagnostics.phpstan.with({
             command = { scriptpath .. "/vendor/bin/phpstan" },
             extra_args = { "--level=9" }
         }),
+        null_ls.builtins.diagnostics.shellcheck
     },
     debounce = 300,
     temp_dir = vim.go.directory
