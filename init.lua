@@ -13,7 +13,7 @@ vim.o.background = 'light'
 vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
 -- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
-vim.cmd("colorscheme franchouchou")
+vim.cmd("colorscheme monokai")
 
 -- notifications
 local notify = require("notify")
