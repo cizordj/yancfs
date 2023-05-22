@@ -52,7 +52,7 @@
 	path = pack/plugins/start/vim-polyglot.git
 	url = git@github.com:sheerun/vim-polyglot.git
 [submodule "pack/plugins/start/kanagawa.nvim"]
-	path = pack/plugins/start/kanagawa.nvim
+	path = pack/plugins/opt/kanagawa.nvim
 	url = git@github.com:/rebelot/kanagawa.nvim.git
 [submodule "pack/plugins/opt/vim-dadbod-completion"]
 	path = pack/plugins/opt/vim-dadbod-completion
