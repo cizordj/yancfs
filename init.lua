@@ -3,7 +3,7 @@
 -- Global options {{{
 --vim.cmd("helptags ALL")
 -- mouse integration
-vim.g.mouse = 'n'
+vim.o.mouse = 'n'
 -- show line numbers
 vim.o.number = true
 vim.o.timeoutlen = 300
