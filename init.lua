@@ -80,7 +80,7 @@ require('nvim-treesitter').setup({
         enable = true,
         additional_vim_regex_highlighting = true
     },
-    ensure_installed = { "lua", "php", "sql", "pgsql" }
+    ensure_installed = { "lua", "php", "sql", "gitcommit", "git_rebase" }
 })
 --}}}
 
