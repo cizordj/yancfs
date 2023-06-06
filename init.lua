@@ -75,13 +75,13 @@ require('lualine').setup({
         lualine_z = { 'tabs' },
     }
 })
-require('nvim-treesitter').setup({
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-    ensure_installed = { "lua", "php" },
-})
+-- require('nvim-treesitter').setup({
+--     highlight = {
+--         enable = true,
+--         additional_vim_regex_highlighting = true,
+--     },
+--     ensure_installed = { "lua", "php" },
+-- })
 -- }}}
 
 -- Lsp configs {{{
