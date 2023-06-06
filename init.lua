@@ -13,7 +13,7 @@ vim.o.background = 'light'
 vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
 -- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
-vim.cmd("colorscheme monokai")
+vim.cmd("colorscheme default")
 
 -- notifications
 local notify = require("notify")
@@ -75,14 +75,14 @@ require('lualine').setup({
         lualine_z = { 'tabs' },
     }
 })
--- require('nvim-treesitter').setup({
---     highlight = {
---         enable = true,
---         additional_vim_regex_highlighting = true,
---     },
---     ensure_installed = { "lua", "php" },
--- })
--- }}}
+require('nvim-treesitter').setup({
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = true
+    },
+    ensure_installed = { "lua", "php", "sql", "pgsql" }
+})
+--}}}
 
 -- Lsp configs {{{
 
