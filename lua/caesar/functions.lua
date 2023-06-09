@@ -68,6 +68,11 @@ end
 
 ---@return nil
 function M:setupNeovide()
+  if vim.o.background == 'dark' then 
+    vim.cmd("highlight Normal guibg=#000000")
+  else
+    vim.cmd("highlight Normal guibg=#ffffff")
+  end
   local cursor_particles = {
       "railgun",
       "torpedo",
