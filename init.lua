@@ -1,9 +1,9 @@
 -- vim:foldmethod=marker
 
 -- Global options {{{
---vim.cmd("helptags ALL")
+vim.cmd("helptags ALL")
 -- mouse integration
-vim.o.mouse = 'n'
+vim.o.mouse = nil
 -- show line numbers
 vim.o.number = true
 vim.o.timeoutlen = 300
@@ -11,9 +11,9 @@ vim.o.timeoutlen = 300
 -- colorscheme stuff
 vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
--- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
+vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
 vim.cmd("colorscheme default")
-vim.o.background = 'light'
+vim.o.background = 'dark'
 
 -- notifications
 local notify = require("notify")
