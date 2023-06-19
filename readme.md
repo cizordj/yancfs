@@ -16,7 +16,7 @@ and no plugin manager whatsoever.
 - Clone this repo into `~/.config/nvim`
 - Install the system dependencies with:
 ```console
-doas apt install yarnpkg composer php-xml php-curl
+doas apt install yarnpkg composer php-xml php-curl php-redis
 ```
 - Let it setup everything with `./yancfs.sh`
 
