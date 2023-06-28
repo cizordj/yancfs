@@ -65,10 +65,10 @@
 	path = pack/plugins/start/nvim-treesitter
 	url = git@github.com:/nvim-treesitter/nvim-treesitter.git
 [submodule "pack/plugins/start/vim-colorscheme-franchouchou"]
-	path = pack/plugins/start/vim-colorscheme-franchouchou
+	path = pack/plugins/opt/vim-colorscheme-franchouchou
 	url = git@github.com:/machakann/vim-colorscheme-franchouchou.git
 [submodule "pack/plugins/start/monokai.nvim"]
-	path = pack/plugins/start/monokai.nvim
+	path = pack/plugins/opt/monokai.nvim
 	url = git@github.com:/tanvirtin/monokai.nvim.git
 [submodule "pack/plugins/start/gruvbox-baby"]
 	path = pack/plugins/start/gruvbox-baby
