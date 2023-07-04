@@ -90,6 +90,10 @@ local on_attach = require('caesar.functions')['onAttach']
 local lsp_flags = {
     debounce_text_changes = 150,
 }
+require('lspconfig')['vala_ls'].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
 require('lspconfig')['phpactor'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
