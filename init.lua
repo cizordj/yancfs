@@ -14,7 +14,6 @@ vim.o.completeopt = 'menu'
 vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
 -- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
-vim.cmd("colorscheme gruvbox-baby")
 
 -- notifications
 local notify = require("notify")

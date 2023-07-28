@@ -58,6 +58,3 @@
 [submodule "pack/plugins/start/monokai.nvim"]
 	path = pack/plugins/opt/monokai.nvim
 	url = git@github.com:/tanvirtin/monokai.nvim.git
-[submodule "pack/plugins/start/gruvbox-baby"]
-	path = pack/plugins/start/gruvbox-baby
-	url = git@github.com:luisiacc/gruvbox-baby.git
