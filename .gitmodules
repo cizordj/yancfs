@@ -52,9 +52,6 @@
 	path = pack/plugins/opt/vim-dadbod-completion
 	url = git@github.com:kristijanhusak/vim-dadbod-completion.git
 	ignore = all
-[submodule "pack/plugins/opt/nvim-autopairs"]
-	path = pack/plugins/opt/nvim-autopairs
-	url = git@github.com:windwp/nvim-autopairs.git
 [submodule "pack/plugins/start/nvim-treesitter"]
 	path = pack/plugins/start/nvim-treesitter
 	url = git@github.com:/nvim-treesitter/nvim-treesitter.git

@@ -8,10 +8,6 @@ local options = { noremap = true }
 if nil == package.loaded["phpactor"] then
   vim.cmd("packadd phpactor")
 end
-if nil == package.loaded["nvim-autopairs"] then
-  vim.cmd("packadd nvim-autopairs")
-  require("nvim-autopairs").setup {}
-end
 map(0, 'n', '<leader>u', ':call phpactor#UseAdd()<cr>', options)
 map(0, 'n', '<leader>mm', ':call phpactor#ContextMenu()<cr>', options)
 map(0, 'n', '<leader>nc', ':call phpactor#ClassNew()<cr>', options)
