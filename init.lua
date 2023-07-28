@@ -87,31 +87,90 @@ require('nvim-treesitter').setup({
 
 -- Lsp configs {{{
 
-local on_attach = require('caesar.functions')['onAttach']
-
 local lsp_flags = {
     debounce_text_changes = 150,
 }
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  ---Use an on_attach function to only map the following keys
+  ---after the language server attaches to the current buffer
+  callback = function(args)
+    local bufnr = args.buf
+    -- Avoid running the attach function multiple times
+    -- when the buffer has multiple LSPs
+    local ok, value = pcall(vim.api.nvim_buf_get_var, bufnr, 'has_run_the_attach')
+    if ok == true then
+      if value then
+        vim.notify(string.format('Buffer %d has attached already', bufnr), vim.log.levels.DEBUG)
+        return
+      end
+    else
+      vim.api.nvim_buf_set_var(bufnr, 'has_run_the_attach', false)
+    end
+
+    -- Mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    vim.keymap.set('n', '<leader>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, bufopts)
+    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set(
+      'n',
+      '<leader>f',
+      function()
+        vim.lsp.buf.format({ timeout_ms = 4000 })
+      end,
+      bufopts
+    )
+    vim.keymap.set('n', '<leader>q', function()
+      vim.diagnostic.open_float({
+        bufnr = bufnr,
+        scope = "line"
+      })
+    end, bufopts)
+    vim.keymap.set('n', '<leader>Q', function()
+      vim.diagnostic.open_float({
+        bufnr = bufnr,
+        scope = "buffer"
+      })
+    end, bufopts)
+    vim.notify(
+      string.format(
+        'Buffer %d has been successfully configured!',
+        bufnr
+      ),
+      vim.log.levels.DEBUG
+    )
+    vim.api.nvim_buf_set_var(bufnr, 'has_run_the_attach', true)
+  end
+})
+
 require('lspconfig')['vala_ls'].setup {
-    on_attach = on_attach,
     flags = lsp_flags,
 }
 require('lspconfig')['phpactor'].setup {
-    on_attach = on_attach,
     flags = lsp_flags,
 }
 require('lspconfig')['tsserver'].setup {
-    on_attach = on_attach,
     flags = {
         debounce_text_changes = 150,
     },
 }
 require('lspconfig')['eslint'].setup {
     flags = lsp_flags,
-    on_attach = on_attach
 }
 require('lspconfig')['lua_ls'].setup {
-    on_attach = on_attach,
     flags = lsp_flags,
     settings = {
         Lua = {
@@ -128,7 +187,6 @@ require('lspconfig')['lua_ls'].setup {
     }
 }
 require('lspconfig')['tailwindcss'].setup {
-    on_attach = on_attach,
     filetypes = {
         "typescriptreact", "typescript"
     }
