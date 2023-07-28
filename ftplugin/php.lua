@@ -3,8 +3,6 @@ vim.bo.tabstop = 4
 vim.api.nvim_set_var('php_folding', true)
 vim.wo.foldlevel = 1
 vim.bo.expandtab = true
-vim.cmd("TSEnable highlight")
-vim.cmd("TSEnable indent")
 local map = vim.api.nvim_buf_set_keymap
 local options = { noremap = true }
 if nil == package.loaded["phpactor"] then
