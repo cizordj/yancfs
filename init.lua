@@ -14,6 +14,8 @@ vim.o.completeopt = 'menu'
 vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
 -- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
+vim.cmd("packadd kanagawa.nvim")
+vim.cmd("colorscheme kanagawa-wave")
 
 -- notifications
 local notify = require("notify")
