@@ -7,6 +7,8 @@ vim.o.mouse = nil
 -- show line numbers
 vim.o.number = true
 vim.o.timeoutlen = 300
+-- Remove the annoying preview window
+vim.o.completeopt = 'menu'
 
 -- colorscheme stuff
 vim.g.guifont = "JetBrains Mono"

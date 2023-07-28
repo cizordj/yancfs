@@ -120,7 +120,7 @@ end
 ---@param bufnr number
 function M:onAttach(bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.bo[bufnr].omnifunc = vim.lsp.omnifunc
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
