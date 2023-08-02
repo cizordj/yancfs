@@ -77,6 +77,7 @@ require('lualine').setup({
         lualine_z = { 'tabs' },
     }
 })
+-- }}}
 
 -- Lsp configs {{{
 
