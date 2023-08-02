@@ -1,10 +1,11 @@
 {
   "dependencies": {
-    "@prettier/plugin-php": "^0.19.2",
-    "@tailwindcss/language-server": "^0.0.10",
-    "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.2.1",
-    "typescript-language-server": "^3.3.0",
-    "vscode-langservers-extracted": "^4.5.0"
+    "@prettier/plugin-php": "^0.19.6",
+    "@tailwindcss/language-server": "^0.0.13",
+    "npm-check-updates": "^16.10.17",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "typescript-language-server": "^3.3.2",
+    "vscode-langservers-extracted": "^4.7.0"
   }
 }

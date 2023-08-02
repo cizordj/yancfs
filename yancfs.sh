@@ -7,9 +7,10 @@ Usage:
 
 Where <action> can be any of these:
 
-init    -- Initialize all git submodules
-update  -- Update all git submodules
-setup   -- Install all modules dependencies
+init		-- Initialize all git submodules
+update		-- Update all git submodules
+setup		-- Install all modules dependencies
+update-yarn	-- Update the frontend dependencies with yarn
 HELP
 }
 
@@ -66,6 +67,11 @@ setup() {
         fi
 }
 
+updateYarn () {
+	yarnpkg run ncu -u
+	yarnpkg install
+}
+
 test ! $# -gt 0
 THERE_IS_NO_ARGUMENT=$?
 
@@ -91,6 +97,9 @@ do
         elif [ "$1" = "setup" ]; then
                 setup
                 exit 0
+	elif [ "$1" = "update-yarn" ]; then
+		updateYarn
+		exit 0
         elif [ $# -eq 1 ]; then
                 echo "Unknown action: $1"
                 exit 1
