@@ -49,6 +49,3 @@
 	path = pack/plugins/opt/vim-dadbod-completion
 	url = git@github.com:kristijanhusak/vim-dadbod-completion.git
 	ignore = all
-[submodule "pack/plugins/start/monokai.nvim"]
-	path = pack/plugins/opt/monokai.nvim
-	url = git@github.com:/tanvirtin/monokai.nvim.git
