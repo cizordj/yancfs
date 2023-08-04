@@ -274,11 +274,6 @@ create_command(
     {}
 )
 create_command(
-    "DeleteFile",
-    ":call delete(expand('%')) | bdelete!",
-    {}
-)
-create_command(
     "FixWhitespace",
     [[:%s/\s\+$//e]],
     {}
