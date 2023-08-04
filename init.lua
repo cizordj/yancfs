@@ -201,7 +201,8 @@ null_ls.setup({
         --     command = { scriptpath .. "/vendor/bin/phpstan" },
         --     extra_args = { "--level=9" }
         -- }),
-        null_ls.builtins.diagnostics.shellcheck
+        null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.diagnostics.php
     },
     debounce = 300,
     temp_dir = vim.go.directory
@@ -340,6 +341,9 @@ create_command(
         range = true
     }
 )
+-- }}}
+
+-- Shortcuts {{{
 -- No one is really happy until you have these shortcuts
 vim.cmd(":abbreviate W! w!")
 vim.cmd(":abbreviate W w")
