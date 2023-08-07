@@ -49,3 +49,6 @@
 	path = pack/plugins/opt/vim-dadbod-completion
 	url = git@github.com:kristijanhusak/vim-dadbod-completion.git
 	ignore = all
+[submodule "pack/plugins/opt/vala.vim"]
+	path = pack/plugins/opt/vala.vim
+	url = git@github.com:/vala-lang/vala.vim
