@@ -80,7 +80,6 @@ require('lualine').setup({
 -- }}}
 
 -- Lsp configs {{{
-
 local lsp_flags = {
     debounce_text_changes = 150,
 }
@@ -155,6 +154,9 @@ require('lspconfig')['vala_ls'].setup {
 }
 require('lspconfig')['phpactor'].setup {
     flags = lsp_flags,
+    cmd = {
+      scriptpath .. '/' .. './bin/phpactor-wrapper.sh'
+    }
 }
 require('lspconfig')['tsserver'].setup {
     flags = {
@@ -192,17 +194,28 @@ require('lspconfig')['tailwindcss'].setup {
 local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.prettier.with({
-            command = { scriptpath .. "/node_modules/.bin/prettier" },
-            extra_filetypes = { "php", "html" },
-            disabled_filetypes = { "markdown" }
-        }),
+        -- null_ls.builtins.formatting.prettier.with({
+        --     command = { scriptpath .. "/node_modules/.bin/prettier" },
+        --     extra_filetypes = { "php", "html" },
+        --     disabled_filetypes = { "markdown" }
+        -- }),
         -- null_ls.builtins.diagnostics.phpstan.with({
         --     command = { scriptpath .. "/vendor/bin/phpstan" },
         --     extra_args = { "--level=9" }
         -- }),
         null_ls.builtins.diagnostics.shellcheck,
-        null_ls.builtins.diagnostics.php
+        -- null_ls.builtins.diagnostics.php.with({
+        --     command = {
+        --       'docker-compose',
+        --       'run',
+        --       '--rm',
+        --       '-u',
+        --       '1000',
+        --       'php',
+        --       'php',
+        --       '-l',
+        --     }
+        -- })
     },
     debounce = 300,
     temp_dir = vim.go.directory
