@@ -23,10 +23,14 @@ if [ "$IS_COMPATIBLE" -eq 0 ]; then
 		--rm \
 		--volume ~/.config/nvim/pack/plugins/opt/phpactor/:/opt/phpactor \
 		--volume ~/.cache/:/opt/cache/ \
+		--volume "$(pwd)":"$(pwd)" \
+		--workdir "$(pwd)" \
 		-e XDG_CACHE_HOME=/opt/cache/ \
 		-u "$(id -u)" \
 		php \
-		php /opt/phpactor/bin/phpactor language-server --no-ansi -vvv
+		php /opt/phpactor/bin/phpactor \
+		language-server \
+		--no-ansi
 
 else
 	~/.config/nvim/pack/plugins/opt/phpactor/bin/phpactor language-server --no-ansi
