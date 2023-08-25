@@ -162,6 +162,9 @@ require('lspconfig')['tsserver'].setup {
     flags = {
         debounce_text_changes = 150,
     },
+    cmd = {
+      scriptpath .. '/' .. './bin/tsserver-wrapper.sh'
+    }
 }
 require('lspconfig')['eslint'].setup {
     flags = lsp_flags,
