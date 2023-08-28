@@ -24,8 +24,10 @@ if [ "$IS_COMPATIBLE" -eq 0 ]; then
 		--volume ~/.config/nvim/pack/plugins/opt/phpactor/:/opt/phpactor \
 		--volume ~/.cache/:/opt/cache/ \
 		--volume "$(pwd)":"$(pwd)" \
+		--volume "$HOME/.config/":/opt/phpactor-config/ \
 		--workdir "$(pwd)" \
 		-e XDG_CACHE_HOME=/opt/cache/ \
+		-e XDG_CONFIG_HOME=/opt/phpactor-config/ \
 		-u "$(id -u)" \
 		php \
 		php /opt/phpactor/bin/phpactor \
