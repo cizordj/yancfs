@@ -25,6 +25,7 @@ if [ "$IS_COMPATIBLE" -eq 0 ]; then
 		--volume ~/.cache/:/opt/cache/ \
 		--volume "$(pwd)":"$(pwd)" \
 		--volume "$HOME/.config/":/opt/phpactor-config/ \
+		--name "$(basename "$(pwd)")"_phpactor \
 		--workdir "$(pwd)" \
 		-e XDG_CACHE_HOME=/opt/cache/ \
 		-e XDG_CONFIG_HOME=/opt/phpactor-config/ \
