@@ -202,14 +202,13 @@ null_ls.setup({
             extra_filetypes = { "php", "html" },
             disabled_filetypes = { "markdown" }
         }),
-        -- null_ls.builtins.diagnostics.phpstan.with({
-        --     command = { scriptpath .. "/vendor/bin/phpstan" },
-        --     extra_args = { "--level=9" }
-        -- }),
         null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.diagnostics.php.with({
             command = {
-              'docker-compose',
+              'docker',
+              'compose',
+            },
+            args = {
               'run',
               '--rm',
               '-u',
@@ -217,6 +216,10 @@ null_ls.setup({
               'php',
               'php',
               '-l',
+              '-d',
+              'display_errors=STDERR',
+              '-d',
+              ' log_errors=Off'
             }
         })
     },
