@@ -21,3 +21,10 @@ local has_been_added = vim.env.PATH:find(phpactorPath, 0, true) ~= nil
 if false == has_been_added then
   vim.env.PATH = vim.env.PATH .. ':' .. phpactorPath
 end
+
+-- Add the project's path if the folder exists
+local vendorDirectory = vim.env.PWD .. '/vendor/bin'
+local vendorExists = vim.env.PATH:find(vendorDirectory, 0, true) ~= nil
+if false == vendorExists then
+  vim.env.PATH = vim.env.PATH .. ':' .. vendorDirectory
+end
