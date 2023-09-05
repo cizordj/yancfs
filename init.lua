@@ -202,7 +202,9 @@ null_ls.setup({
             extra_filetypes = { "php", "html" },
             disabled_filetypes = { "markdown" }
         }),
+        null_ls.builtins.completion.spell,
         null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.code_actions.shellcheck,
         null_ls.builtins.diagnostics.php.with({
             command = {
               'docker',
