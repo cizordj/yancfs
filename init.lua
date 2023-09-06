@@ -15,13 +15,13 @@ vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
 -- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
 vim.cmd("packadd kanagawa.nvim")
-vim.cmd("colorscheme kanagawa-wave")
+vim.cmd("colorscheme kanagawa-lotus")
 
 -- notifications
 local notify = require("notify")
 vim.notify = notify
 notify.setup({
-    fps = 60,
+    fps = 10,
     top_down = false,
     background_colour = "#eeeeee"
 })
@@ -204,6 +204,7 @@ null_ls.setup({
         }),
         null_ls.builtins.completion.spell,
         null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.diagnostics.phpcs,
         null_ls.builtins.code_actions.shellcheck,
         null_ls.builtins.diagnostics.php.with({
             command = {
