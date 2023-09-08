@@ -15,7 +15,7 @@ vim.g.guifont = "JetBrains Mono"
 vim.api.nvim_set_option('termguicolors', true)
 -- vim.cmd("highlight DiagnosticFloatingError ctermfg=white")
 vim.cmd("packadd kanagawa.nvim")
-vim.cmd("colorscheme kanagawa-lotus")
+vim.cmd("colorscheme elflord")
 
 -- notifications
 local notify = require("notify")
