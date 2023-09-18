@@ -52,3 +52,6 @@
 [submodule "pack/plugins/opt/vala.vim"]
 	path = pack/plugins/opt/vala.vim
 	url = git@github.com:/vala-lang/vala.vim
+[submodule "pack/plugins/start/vimtex.git"]
+	path = pack/plugins/start/vimtex.git
+	url = git@github.com:/lervag/vimtex.git
