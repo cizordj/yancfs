@@ -21,17 +21,17 @@ if [ "$IS_COMPATIBLE" -eq 0 ]; then
 
 	docker-compose run \
 		--rm \
-		--volume ~/.config/nvim/pack/plugins/opt/phpactor/:/opt/phpactor \
-		--volume ~/.cache/:/opt/cache/ \
+		--volume ~/.config/nvim/pack/plugins/opt/phpactor/:/tmp/phpactor \
+		--volume ~/.cache/phpactor/:/tmp/cache/phpactor/ \
 		--volume "$(pwd)":"$(pwd)" \
-		--volume "$HOME/.config/":/opt/phpactor-config/ \
+		--volume "$HOME/.config/phpactor/":/tmp/phpactor-config/phpactor/ \
 		--name "$(basename "$(pwd)")"_phpactor \
 		--workdir "$(pwd)" \
-		-e XDG_CACHE_HOME=/opt/cache/ \
-		-e XDG_CONFIG_HOME=/opt/phpactor-config/ \
+		-e XDG_CACHE_HOME=/tmp/cache/ \
+		-e XDG_CONFIG_HOME=/tmp/phpactor-config/ \
 		-u "$(id -u)" \
 		php \
-		php /opt/phpactor/bin/phpactor \
+		php /tmp/phpactor/bin/phpactor \
 		language-server \
 		--no-ansi
 
