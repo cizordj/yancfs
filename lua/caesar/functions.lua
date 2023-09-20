@@ -57,6 +57,7 @@ function M:loadUpDadbod()
   vim.cmd("packadd vim-dadbod-ui")
   vim.cmd("packadd vim-dadbod-completion")
   vim.api.nvim_set_keymap('n', '<F5>', "<cmd>DBUIToggle<cr>", { noremap = true, desc = "Open up the database viewer" })
+  vim.cmd("helptags ALL")
   vim.cmd("DBUIToggle")
 end
 
