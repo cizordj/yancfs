@@ -202,12 +202,6 @@ null_ls.setup({
             extra_filetypes = { "php", "html" },
             disabled_filetypes = { "markdown" }
         }),
-        null_ls.builtins.completion.spell.with({
-          disabled_filetypes = {
-            "pgsql",
-            "sql"
-          }
-        }),
         null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.diagnostics.phpcs,
         null_ls.builtins.code_actions.shellcheck,
