@@ -84,8 +84,7 @@ function M:setupNeovide()
   }
   vim.o.guifont = "JetBrainsMono Nerd Font:h20"
   local i = math.random(0, #(cursor_particles) - 1)
-  -- vim.g.neovide_cursor_vfx_mode = cursor_particles[i];
-  vim.cmd('let g:neovide_cursor_vfx_mode = "' .. cursor_particles[i] .. '"')
+  vim.g.neovide_cursor_vfx_mode = cursor_particles[i];
   vim.keymap.set(
       'n',
       '<C-S-PageUp>',
