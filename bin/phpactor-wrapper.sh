@@ -9,8 +9,8 @@
 docker-compose run \
 	--rm \
 	--volume ~/.config/nvim/pack/plugins/opt/phpactor/:/opt/phpactor \
-	--volume ~/.cache/:/opt/cache/ \
-	-e XDG_CACHE_HOME=/opt/cache/ \
+	--volume ~/.cache/:/tmp/cache/ \
+	-e XDG_CACHE_HOME=/tmp/cache/ \
 	-u "$(id -u)" \
 	-w /opt/phpactor php \
 	composer check-platform-reqs -q 2> /dev/null < /dev/null
@@ -18,6 +18,8 @@ docker-compose run \
 IS_COMPATIBLE=$?
 
 if [ "$IS_COMPATIBLE" -eq 0 ]; then
+
+	[ -d ~/.cache/phpactor ] || mkdir ~/.cache/phpactor 2> /dev/null < /dev/null
 
 	docker-compose run \
 		--rm \
