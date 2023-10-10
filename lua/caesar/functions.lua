@@ -137,4 +137,15 @@ function M:setupSenaiIdentity()
   vim.cmd("Git config commit.gpgSign true")
 end
 
+---Makes the current git project use my identity
+---from codeberg, which includes username, email,
+---gpg key and so on.
+function M:setupCodebergIdentity()
+  vim.cmd('Git config user.name cizordj')
+  vim.cmd('Git config user.email zkqv+36669@cezarcampos.com.br')
+  vim.cmd("Git config user.signingKey 16DC13CE15C3BA0053383E689466E26E3D20204C")
+  vim.cmd("Git config commit.verbose true")
+  vim.cmd("Git config commit.gpgSign true")
+end
+
 return M
