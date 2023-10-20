@@ -326,6 +326,11 @@ create_command(
     {}
 )
 create_command(
+    "SetupCodebergIdentity",
+    require('caesar.functions').setupCodebergIdentity,
+    {}
+)
+create_command(
     "JsonPrettify",
     [[:%!jq '.']],
     {}
