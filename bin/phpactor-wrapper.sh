@@ -6,7 +6,7 @@
 # There is a lot of room for improvement, however
 # this script is able to fullfil my basic needs
 
-docker-compose run \
+docker compose run \
 	--rm \
 	--volume ~/.config/nvim/pack/plugins/opt/phpactor/:/opt/phpactor \
 	--volume ~/.cache/:/tmp/cache/ \
@@ -21,7 +21,7 @@ if [ "$IS_COMPATIBLE" -eq 0 ]; then
 
 	[ -d ~/.cache/phpactor ] || mkdir ~/.cache/phpactor 2> /dev/null < /dev/null
 
-	docker-compose run \
+	docker compose run \
 		--rm \
 		--volume ~/.config/nvim/pack/plugins/opt/phpactor/:/tmp/phpactor \
 		--volume ~/.cache/phpactor/:/tmp/cache/phpactor/ \
